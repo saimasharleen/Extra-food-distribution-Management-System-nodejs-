@@ -1,0 +1,26 @@
+{
+  "name": "extrafood",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saimasharleen/Extra-food-distribution-management-system-nodejs-.git"
+  },
+  "author": "Najia Iffat Saima Sharleen Tahmid Hossain pritom Dutta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saimasharleen/Extra-food-distribution-management-system-nodejs-/issues"
+  },
+  "homepage": "https://github.com/saimasharleen/Extra-food-distribution-management-system-nodejs-#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "express-session": "^1.16.2"
+  }
+}
