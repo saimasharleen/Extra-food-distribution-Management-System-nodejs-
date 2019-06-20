@@ -1,0 +1,667 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+a{
+    text-decoration: none;
+}
+ul,ol{
+    list-style-type: none;
+}
+img{
+    vertical-align: middle;
+}
+@font-face{
+    src:url(../fonts/Lora-Regular.ttf);
+    font-family:lr;
+}
+@font-face{
+    src:url(../fonts/Lora-Bold.ttf);
+    font-family:lb;
+}
+@font-face{
+    src:url(../fonts/OpenSans-Light.ttf);
+    font-family:ol;
+}
+@font-face{
+    src:url(../fonts/OpenSans-Regular.ttf);
+    font-family:or;
+}
+@font-face{
+    src:url(../fonts/Raleway-ExtraBold.ttf);
+    font-family:re;
+}
+@font-face{
+    src:url(../fonts/Raleway-Bold.ttf);
+    font-family:rb;
+}
+@font-face{
+    src:url(../fonts/Raleway-Medium.ttf);
+    font-family:rm;
+}
+/*===================header part start====================*/
+.head{
+    position: fixed;
+    width: 100%;
+    background:#777;
+    z-index: 9999;
+    transition: all linear .3s;
+}
+.bg{
+    background:rgba(221, 221, 221, 0.7);
+    animation:menu 1s;
+}
+@keyframes menu{
+    from{top:-50px;}
+    to{top:0px;}
+}
+.logo{
+    width: 200px;
+    padding: 10px 0;
+}
+.navbar-light .navbar-nav .nav-link{
+    font-size: 16px;
+    font-family: lr;
+    color: #fff;
+    text-transform: uppercase;
+    padding:10px 10px;
+    font-size: 18px;
+    border: 2px solid transparent;
+}
+.navbar-light .navbar-nav .nav-link:hover{
+    color: #4caf50;
+    border-bottom: 2px solid #4caf50;
+}
+/*=================Banner part start=====================*/
+.banner{
+    position: relative;
+}
+.banner:after{
+    position: absolute;
+    content: '';
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(34, 34, 34, 0.4);
+}
+.banner_tex h1{
+    font-size:48px;
+    font-family: re;
+    color:#ddd;
+}
+.banner_tex p{
+    font-size:16px;
+    font-family: or;
+    color:#ddd;
+}
+.banner_tex button{
+    padding: 12px 41px 12px 43px;
+    font-size: 16px;
+    font-family: rm;
+    color: #fff;
+    background:#4caf50;
+    border: transparent;
+    margin-top: 40px;
+    cursor: pointer;
+    margin-bottom: 100px;
+}
+.slider_item img{
+    width: 100%;
+    height:800px;
+}
+.slide_hed{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+}
+.slide_hed{
+    padding-left:200px;
+    padding-top: 300px;
+}
+.banner_tex span{
+    font-size: 18px;
+    font-family: os;
+    color: #222;
+    
+}
+.banner_tex i{
+    font-size:20px;
+    color: #222;
+    padding: 0 15px;
+    cursor: pointer;
+}
+/*==================Service Part start=====================*/
+.service_text h4{
+    font-size:14px;
+    font-family: lr;
+    color:#212121;
+    padding-top:80px;
+}
+.service_text h2{
+    font-size:44px;
+    font-family: lb;
+    color:#212121;
+    text-transform: uppercase;
+}
+.service_text p{
+    font-size:14px;
+    font-family: or;
+    color:#808080;
+    padding: 0 115px;
+    line-height: 25px;
+}
+.content img{
+    margin-top: 98px;
+    margin-bottom: 40px;
+}
+.content h3{
+    font-size: 16px;
+    font-family: rb;
+    color: #212121;
+}
+.content p{
+    font-size: 13px;
+    font-family: or;
+    color: #808080;
+    padding-bottom: 185px;
+}
+/*=====================About part start======================*/
+.about_bg{
+    background:url(../imases/banner2.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+.abot img{
+    width: 100%;
+    height:100%;
+}
+.abot_text h5{
+    font-size:14px;
+    font-family:lr;
+    color:#212121;
+    padding-top:100px;
+    text-transform: uppercase;
+}
+.abot_text h2{
+    font-size:44px;
+    font-family:lb;
+    color:#212121;
+    padding-bottom:44px;
+    text-transform: uppercase;
+}
+.abot_text p{
+    font-size:14px;
+    font-family:or;
+    color:#212121;
+    padding-bottom:54px;
+    line-height: 22px;
+}
+.abot_text button{
+    padding: 12px 23px;
+    font-size:16px;
+    font-family: ol;
+    color: #fff;
+    background:#4caf50;
+    text-transform: uppercase;
+}
+.abot_text button:hover{
+    color: #4caf50;
+    border: 2px solid #4caf50;
+    background: transparent;
+}
+#btn{
+    padding: 12px 23px;
+    font-size:16px;
+    font-family: ol;
+    color: #4caf50;
+    border: 2px solid #4caf50;
+    background: transparent;
+    margin-left: 10px;
+}
+#btn:hover{
+    color: #fff;
+    background:#4caf50;
+}
+/*===================Work part start=========================*/
+.work_head h6{
+    font-size:14px;
+    font-family: lr;
+    color:#212121;
+    padding-top:20px;
+}
+.work_head h2{
+    font-size:44px;
+    font-family: lb;
+    color:#212121;
+    padding-bottom:80px;
+}
+.wort_iteam{
+    margin-top:163px;
+}
+.work_list{
+    font-size:16px;
+    font-family:ol;
+    color:#212121;
+    padding-left: 19px;
+    border-left: 3px solid transparent;
+    position: relative;
+}
+.work_list:hover{
+    color:#4caf50;
+    border-left: 3px solid #4caf50;
+    text-decoration: none;
+}
+/*======images==========*/
+.button {
+  display: inline-block;
+  padding: 0.5em 1.0em;
+  background: #ddd;
+  border:1px solid #4caf50;
+  border-radius: 7px;
+  color: #222;
+  font-family: sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #8CF;
+}
+
+.button:active,
+.button.is-checked {
+  background-color: #4caf50;;
+}
+
+.button.is-checked {
+  color: white;
+  text-shadow: 0 -1px hsla(0, 0%, 0%, 0.8);
+}
+
+.button:active {
+  box-shadow: inset 0 1px 10px hsla(0, 0%, 0%, 0.8);
+}
+
+/* ---- button-group ---- */
+
+.button-group {
+    margin-bottom: 20px;
+    margin-left: 105px;
+    
+}
+
+.button-group:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.button-group .button {
+  float: left;
+  border-radius: 8px;
+  margin-left: 5px;
+  margin-right: 1px;
+}
+/* ---- .element-item ---- */
+
+.element-item {
+  position: relative;
+  float: left;
+  width: 23%;
+  margin: 5px;
+}
+.element-item img{
+    width: 100%;
+    border: 10px solid transparent;
+}
+.element-item img:hover{
+    cursor: pointer;
+    border: 10px solid #fff;
+    box-shadow: 6px 7px 14px -6px #777
+}
+.overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(34, 34, 34, 0.51);
+    text-align: center; 
+    line-height:210px;
+    transform: scale(0);
+    transition:all linear .3s;
+}
+.element-item:hover .overlay{
+    transform: scale(1);
+}
+.overlay i{
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    font-size: 20px;
+    background:#4caf50;
+    text-align: center;
+    line-height: 50px;
+    border-radius:50%;
+    cursor: pointer;
+}
+.work h2{
+    font-size:30px;
+    font-family: lb;
+    color: #212121;
+    text-transform: uppercase;
+    padding-left:205px;
+}
+#play{
+    background: #c00;
+}
+/*=================================*/
+.work1{
+    margin-top:75px;
+}
+.work1 a{
+    font-size:16px;
+    font-family: or;
+    color:#212121;
+    text-decoration: none;
+    padding-left: 5px;
+}
+/*================Banner2 part start=====================*/
+.banner2_bg{
+    background:url(../imases/banner.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    padding-bottom: 85px;
+    margin-top: 80px;
+}
+.banner2 h2{
+    font-size:56px;
+    font-family:lb;
+    color:#fff;
+    padding-top:100px;
+    text-transform: uppercase;
+    padding-bottom: 75px;
+}
+.banner2 button{
+    padding:18px 35px;
+    font-size:16px;
+    font-family:lb;
+    text-transform: uppercase;
+    color:#fff;
+    cursor: pointer;
+    background:#4caf50;
+    border: none;
+    border: 2px solid transparent;
+}
+.banner2 button:hover{
+    border: 2px solid #4caf50;
+    background: transparent;
+}
+#banner2_btn{
+    border: 2px solid #4caf50;
+    background: transparent;
+    margin-left: 15px;
+}
+#banner2_btn:hover{
+    background:#4caf50;
+}
+.banner2 i{
+    font-size:26px;
+    color:#fff;
+    cursor: pointer;
+}
+.down{
+    padding-top:96px;
+}
+/*==================Service2 part Start====================*/
+.service2_head h6{
+    font-size:14px;
+    font-family:lr;
+    color:#212121;
+    padding-top:100px;
+    text-transform: uppercase;
+}
+.service2_head h2{
+    font-size:44px;
+    font-family:lb;
+    color:#212121;
+    text-transform: uppercase;
+    padding-bottom: 100px;
+}
+.service2_icon{
+    font-size: 25px;
+    width: 70px;
+    height: 70px;
+    color: #fff;
+    background: #222;
+    text-align: center;
+    line-height: 70px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.service2_icon:hover{
+    background:#4caf50;
+}
+.service2_icon:hover .service2_tex h5{
+    color:#4caf50;
+}
+.service2_tex h5{
+    font-size:18px;
+    font-family: or;
+    color: #212121;
+}
+.service2_tex p{
+    font-size:13px;
+    font-family: or;
+    color: #666;
+}
+/*================clints part start===================*/
+.clints_feedback p{
+    font-size:18px;
+    font-family:or;
+    color:#555;
+    padding-top:217px;
+}
+.clints_feedback h4{
+    font-size:20px;
+    font-family:lb;
+    color:#222;
+    padding-top:47px;
+}
+.clints_feedback h5{
+    font-size:14px;
+    font-family:or;
+    color:#222;
+    padding-bottom: 70px;
+}
+silide_person{
+    margin: 0 50px;
+}
+.silide_person img{
+    width: 100%;
+}
+.slide_main{
+    position: relative;
+}
+.slide_main .slick-dots{
+    position: absolute;
+    left: 10px;
+}
+.slide_main .slick-dots li{
+    display: inline-block;
+    margin:0 10px;
+    width: 10px;
+    height: 10px;
+    background:#777; 
+    text-align: center;
+    line-height: 30px;!important;
+    border-radius: 50%;
+}
+.slide_main .slick-dots li button{
+    color: transparent;
+    width:20px;
+    height: 20px;
+    background:#4caf50;
+    border: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: all linear .3s;
+}
+.slide_main .slick-dots li.slick-active button{
+    opacity: 1;
+}
+/*=================patners part start==================*/
+.patners_bg{
+    background:#f1f1f1;
+    padding-top: 110px;
+    padding-bottom: 100px;
+}
+.paterns_text h5{
+    font-size:14px;
+    font-family: lr;
+    color:#555;
+    text-transform: uppercase;
+}
+.paterns_text h2{
+    font-size:44px;
+    font-family: lb;
+    color:#555;
+    padding-bottom:70px;
+    text-transform: uppercase;
+}
+/*================Footer part start=================*/
+.footer h2{
+    font-size:56px;
+    font-family:lb;
+    color:#222;;
+    padding-top:100px;
+    text-transform: uppercase;
+}
+.footer p{
+    font-size:14px;
+    font-family:or;
+    color:#555;;
+    text-transform: uppercase;
+    padding-bottom: 90px;
+}
+.footer1 button{
+    padding: 24px 37px;
+    margin-top: 115px;
+    font-size:20px;
+    font-family:or;
+    color:#fff;
+    background:#4caf50;
+    border:none;
+    text-transform: uppercase;
+    
+}
+/*===========back to top button============*/
+.back-to-top{
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 99;
+}
+.back-to-top i{
+    width: 60px;
+    height: 60px;
+    color: #fff;
+    background:#4caf50;
+    font-size: 35px;
+    text-align: center;
+    line-height: 60px;
+    border-radius: 50%;
+    transform: rotate(180deg)
+}
+/*======preloder==========*/
+.preloder{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 99999999;
+    background: #ffff;
+}
+#main{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.round, .round:before, .round:after{
+  border: 3px solid transparent;
+  border-radius: 50%;
+}
+.round{
+  width: 150px;
+  height: 150px;
+  margin: 50px auto;
+  position: relative;
+  border-top-color: violet;
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 1s infinite linear;
+}
+.round:before, .round:after{
+  content: "";
+  position: absolute;
+}
+.round:before{
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-top-color: aqua;
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 2s infinite linear;  
+}
+.round:after{
+  top: 23px;
+  left: 23px;
+  right: 23px;
+  bottom: 23px;
+  border-top-color: #bac900;
+  -webkit-animation: spin 1s infinite linear;
+  animation: spin 3s infinite linear;  
+}
+@-webkit-keyframes spin{
+  from{
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to{
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg); 
+  }
+}
+@keyframes spin{
+  from{
+    -webkit-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to{
+    -webkit-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg); 
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
