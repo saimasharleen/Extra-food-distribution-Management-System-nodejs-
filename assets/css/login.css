@@ -1,0 +1,200 @@
+*{
+    margin : 0;
+    padding: 0;
+    outline: 0;
+}
+a{
+    text-decoration: none;
+}
+ul,ol {
+    list-style-type: none;
+}
+img {
+    vertical-align: middle;
+}
+.clr {
+    clear: both;
+}
+/*==============header part===========*/
+
+@font-face{
+    src:url(../font/Lato-Regular.ttf);
+    font-family:lr;
+}
+@font-face{
+    src:url(../font/Lato-Bold.ttf);
+    font-family:lb;
+}
+
+.full_wrapper{
+    width: 100%;
+}
+.wrapper{
+    width: 1140px;
+    margin: 0 auto;
+}
+.logo{
+    width: 100px;
+    float: left;
+}
+.logo img{
+    padding-top: 21px;
+}
+
+.menu{
+    width: 900px;
+    float: left;
+    text-align: right;
+}
+.menu ul li{
+    display: inline-block;
+    
+}
+.menu ul li a{
+    padding: 0 25px;
+    line-height: 100px;
+    font-family: lr;
+    font-size: 24px;
+    text-transform:capitalize;
+    color: #222222;
+    font-weight: 400;
+    transition: all linear .3s;
+}
+.menu ul li a:hover{
+    color: #15a4fa;
+}
+
+/*==============form  part===========*/
+
+.footer_bg{
+    background:url(../images/login.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 96px;
+}
+.footer_bg:after{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(43, 54, 74, 0.75);
+    
+}
+.footer_main{
+    position: relative;
+    z-index: 9999;
+}
+.footer_head h2{
+    font-size: 41px;
+    font-family: lr;
+    color: #fff;
+   
+}
+.footer_head p{
+    font-size: 18px;
+    font-family: lr;
+    color: #fff;
+}
+.form{
+    width: 555px;
+    margin: 0 auto;
+    text-align: center;
+}
+.form input{
+    width: 555px;
+    padding: 25px 0;
+    padding-left: 20px;
+    background: none;
+    border: 1px solid #999999;
+    border-radius: 3px;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+}
+
+.fa{
+    position:absolute;
+    left:810px;
+    top:255px;
+    font-size: 25px;
+    cursor: pointer;
+    color:red;
+}
+.fa.active{
+    color:dodgerblue;
+}
+.form button{
+    background:none;
+    padding: 16px 50px;
+    border: 1px solid #15a4fa;
+    border-radius: 3px;
+    color: #fff;
+}
+.form button:hover {
+    background: #15a4fa;
+}
+
+.form button{
+    background:none;
+    padding: 16px 50px;
+    border: 1px solid #15a4fa;
+    border-radius: 3px;
+    color: #fff;
+}
+.form button:hover {
+    background: #15a4fa;
+}
+
+
+.form input[type="submit"]
+{
+    border-radius: 25px;
+    font-size: 20px;
+    height: 40px;
+    cursor : pointer;
+    background: rgb(66,133,244);
+    color: #fff;
+    margin-bottom: 0;
+}
+.form input[type="submit"]:hover
+{
+    background: #34F458;
+    color: #fff;
+}
+.form form div
+{
+    position: relative;
+}
+.form form div label
+{
+    position: absolute;
+    top: 3px;
+    pointer-events: none;
+    left: 0;
+    transition: .5s;
+}
+.form input:focus ~label,
+.form input:valid ~label
+{
+    left: 0;
+    top: -20px;
+    color: rgb(66,133,244);
+    font-size: 12px;
+    font-weight: bold;
+}
+.form input:focus,
+.form input:valid
+{
+    border-bottom: 2px solid rgb(66,133,244);
+}
+.error_form
+{
+    top: 12px;
+    color: rgb(216, 15, 15);
+    font-size: 15px;
+    font-family: Helvetica;
+}
