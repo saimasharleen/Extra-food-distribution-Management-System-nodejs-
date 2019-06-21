@@ -64,13 +64,13 @@
             
             </div>
             <div class="form">
-                <form id="login_form" >
+                <form id="login_form" method="post">
                     <div>
-                    <input type="text"  id="form_uname"  placeholder="Username" name="" required=""  >
+                    <input type="text"  id="form_uname"  placeholder="Username" name="username" required=""  >
                     <span class="error_form" id="uname_error_message"></span>
                      </div>
                     <i class="fa fa-eye" id="eye" onclick="togglepass()"></i>
-                    <input type="password" id="pass" placeholder="Password"  name="" required="">
+                    <input type="password" id="pass" placeholder="Password"  name="password" required="">
                     <span class="error_form" id="pass_error_message"></span>
                     <button type="submit" id="submit" value="login">Login</button>
                 
