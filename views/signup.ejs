@@ -65,7 +65,7 @@
             </div>
 
        <div class="form">
-        <form id="registration_form">
+        <form id="registration_form" method="post">
             <div>
                 <input type="text" id="form_fname" placeholder="Enter Your First Name" name="firstname" required="">
                 <span class="error_form" id="fname_error_message"></span>   
@@ -75,7 +75,7 @@
                 <span class="error_form" id="sname_error_message"></span>   
             </div>
             <div>
-                <input type="text" id="form_uname" name="" placeholder="Enter Your UserName" required="">
+                <input type="text" id="form_uname" name="username" placeholder="Enter Your UserName" required="">
                 <span class="error_form" id="uname_error_message"></span>   
             </div>
             <div>
@@ -95,15 +95,15 @@
             </div>
             <div id="form_usertype">
                 <font color="#fff" style="width:0px">Select Usertype:</font>
-                <input type="radio" id="owner" style="width:0px" name="usertype" required="" ><font color="#fff">Owner</font>
+                <input type="radio" id="owner" style="width:0px" name="usertype" value="owner" required="" ><font color="#fff">Owner</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="admin" style="width:0px" name="usertype" required="" ><font color="#fff">Admin</font>
+                <input type="radio" id="admin" style="width:0px" name="usertype" value="admin" required="" ><font color="#fff">Admin</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="volunteer" style="width:0px" name="usertype" required="" ><font color="#fff">Volunteer</font>
+                <input type="radio" id="volunteer" style="width:0px" name="usertype" value="volunteer" required="" ><font color="#fff">Volunteer</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="eventmanager" style="width:0px" name="usertype" required="" ><font color="#fff">Event Manager</font>
+                <input type="radio" id="eventmanager" style="width:0px" name="usertype" value="eventmanager" required="" ><font color="#fff">Event Manager</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="generaluser" style="width:0px" name="usertype" required="" ><font color="#fff">GeneralUser</font>
+                <input type="radio" id="generaluser" style="width:0px" name="usertype" value="generaluser" required="" ><font color="#fff">GeneralUser</font>
                 <span class="error_form" id="usertype_error_message"></span>
 
             </div>
