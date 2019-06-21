@@ -11,13 +11,13 @@ $(function() {
             check_password();
          });
          function check_uname() {
-            var pattern = /^[a-zA-Z]*$/;
+            var pattern = /^[A-Za-z0-9_]{5,15}$/;
             var uname = $("#form_uname").val();
             if (pattern.test(uname) && uname !== '') {
                $("#uname_error_message").hide();
                $("#form_uname").css("border-bottom","2px solid #34F458");
             } else {
-               $("#uname_error_message").html("Should contain only Characters");
+               $("#uname_error_message").html("Should contain five Characters(number,_,characters only!)");
                $("#uname_error_message").show();
                $("#form_uname").css("border-bottom","2px solid #F90A0A");
                error_uname = true;
