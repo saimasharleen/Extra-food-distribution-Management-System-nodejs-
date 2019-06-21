@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(request, response){
-	response.render('admin');
+	response.render('admin/home');
 });
 
 router.post('/', function(request, response){
