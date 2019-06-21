@@ -17,9 +17,32 @@ module.exports={
 		});
 	},
 	insert: function(user, callback){
-		var sql = "INSERT INTO user values(null,?,?,?,?,?,?,?)";
-		db.execute(sql, [user.firstname, user.lastname, user.username, user.email, user.phoneno, user.area, user.usertype], function(success){
+		var sql = "INSERT INTO user values(null, ?, ?,?,?,?,?,?,?)";
+		db.execute(sql, [user.firstname, user.lastname, user.username, user.email, user.phoneno, user.area, user.usertype, user.image], function(success){
 			callback(success);
+		});
+	},
+	insertLogin: function(user, callback){
+		var sql = "INSERT INTO userlogin values(?, ?, ?,?)";
+		db.execute(sql, [user.username, user.password, user.usertype, user.status], function(success){
+			callback(success);
+		});
+	},
+	validate: function(user, callback){
+		var sql = "select * from userlogin where username=? and password=?";
+		db.getResult(sql, [user.username, user.password], function(result){
+
+			var x= "abc";
+			if(result.length > 0){
+
+				 x= result[0].usertype;
+				//console.log(x);
+				
+				callback(x);
+
+			}else{
+				callback(x);
+			}
 		});
 	},
 	/*getAllpost: function(callback){
