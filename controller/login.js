@@ -9,6 +9,28 @@ router.get('/', function(request, response){
 
 router.post('/', function(request, response){
 	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
+ var user = {
+      	username : request.body.username,
+      	password : request.body.password,
+          
+      };
+      if(!user.username || !user.password ){
+      	//console.log(user);
+            response.redirect('/login');
+      }else
+      {
+      	userModel.validate(user,function(status){
+      		if(status == 'owner'){
+      			//console.log(user.username);
+      			response.redirect('/volunteer');
+      		}
+      		else{
+
+      			/*response.send('Error in adding user');*/
+                        response.redirect('/signup');
+      		}
+      	});
+      }
 });
 
 module.exports = router;
