@@ -9,10 +9,9 @@
     <link rel="stylesheet" href="/assets/css/lightbox.min.css">
     <link rel="stylesheet" href="/assets/css/venobox.css">
     <link rel="stylesheet" href="/assets/css/slick.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/media.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
     
 </head>
 <body>
@@ -58,9 +57,32 @@
 </section>
 <!------------header part End--------------->
 <!------------Form part start------------->
-
+    
+  <div class="full_wrapper footer_bg">
+        <div class="wrapper footer_main">
+           <div class="work_head footer_head">
+               
+        
+            </div>
+        </div>
+    </div>
 <!------------Form part End---------------->
+ <table border="1">
+            <tr>
+                <th width="30%"><center>Name</center></th>
+        
+                <th width="40%"><center>User type</center></th>
+                <th width="50%"><center>Action</center></th>
+            </tr>
+   <% for(var i=0; i < userList.length; i++) { %>
+            <tr>
+                <th width="30%"><center><%= userList[i].username %></center></th>               
+                <th width="40%"><center><%= userList[i].usertype %></center></th>
+                <th width="50%"><center><%= userList[i].status %></center></th>
 
+            </tr>
+     <% } %>
+        </table>
 <!-- validation-->
 
 <!------------Footer part End------------------------->
