@@ -20,13 +20,25 @@ router.post('/', function(request, response){
       }else
       {
       	userModel.validate(user,function(status){
-      		if(status == 'owner'){
+      		if(status == 'volunteer'){
       			//console.log(user.username);
       			response.redirect('/volunteer');
       		}
                   else if(status == 'admin'){
                         //console.log(user.username);
                         response.redirect('/admin');
+                  }
+                  else if(status == 'owner'){
+                        //console.log(user.username);
+                        response.redirect('/owner');
+                  }
+                  else if(status == 'eventmanager'){
+                        //console.log(user.username);
+                        response.redirect('/eventmanager');
+                  }
+                  else if(status == 'generaluser'){
+                        //console.log(user.username);
+                        response.redirect('/generaluser');
                   }
 
       		else{
