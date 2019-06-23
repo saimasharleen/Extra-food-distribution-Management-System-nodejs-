@@ -24,10 +24,15 @@ router.post('/', function(request, response){
       			//console.log(user.username);
       			response.redirect('/volunteer');
       		}
+                  else if(status == 'admin'){
+                        //console.log(user.username);
+                        response.redirect('/admin');
+                  }
+
       		else{
 
       			/*response.send('Error in adding user');*/
-                        response.redirect('/signup');
+                        response.redirect('/login');
       		}
       	});
       }
