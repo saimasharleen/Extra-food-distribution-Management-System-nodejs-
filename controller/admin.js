@@ -1,8 +1,15 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+var adminModel = require.main.require('./models/admin-model');
+
 
 router.get('/', function(request, response){
-	response.render('admin/home');
+	adminModel.getAll(function(status){
+                       response.render('admin/home',{userList: status});  
+                        });
+      			//cons
+	
 });
 
 router.post('/', function(request, response){
