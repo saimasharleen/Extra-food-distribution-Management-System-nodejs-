@@ -1,12 +1,54 @@
 var express = require('express');
 var router = express.Router();
+var mysql = require('mysql');
+var adminModel = require.main.require('./models/admin-model');
+
 
 router.get('/', function(request, response){
-	response.render('admin');
+	adminModel.getAll(function(status){
+                       response.render('admin/home',{userList: status});  
+                        });
+      			//cons
+	
 });
 
-router.post('/', function(request, response){
-	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
+
+router.get('/reject/:username', function(request, response){
+	
+    
+    	 var username= request.params.username;
+
+
+   
+	adminModel.update(username, function(status){
+		console.log(username);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
+});
+
+
+router.get('/accept/:username', function(request, response){
+	
+    
+    	 var username= request.params.username;
+
+
+   
+	adminModel.updateAccept(username, function(status){
+		console.log(username);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
+});
+
+router.get('/notice', function(request, response){
+	
+    response.render('admin/notice');
+	
 });
 
 module.exports = router;
+
