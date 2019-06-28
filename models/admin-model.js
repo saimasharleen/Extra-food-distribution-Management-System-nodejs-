@@ -34,5 +34,13 @@ updateAccept: function(user, callback){
 	},
 	
 	
+insert: function(user, callback){
+		var sql = "INSERT INTO admin values(null, ?)";
+		db.execute(sql, [user.post], function(success){
+			callback(success);
+		});
+	},
+
+
 	
 }
