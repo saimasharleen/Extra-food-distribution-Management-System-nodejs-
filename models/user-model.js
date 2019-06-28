@@ -9,7 +9,12 @@ module.exports={
 			callback(result[0]);
 		});
 	},*/
-
+	getNotice: function(callback){
+		var sql = "SELECT * FROM admin ORDER BY id DESC LIMIT 5";
+		db.getResult(sql, [], function(result){
+			callback(result);
+		});
+	},
 	getAll: function(callback){
 		var sql = "SELECT * FROM user";
 		db.getResult(sql, [], function(result){
