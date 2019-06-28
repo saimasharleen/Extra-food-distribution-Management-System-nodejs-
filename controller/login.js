@@ -4,10 +4,16 @@ var userModel = require.main.require('./models/user-model');
 var router = express.Router();
 
 router.get('/', function(request, response){
+      userModel.getNotice(function(status){
+                       response.render('index',{userList: status});  
+                        });
+      //response.render('index');
+});
+router.get('/login', function(request, response){
 	response.render('login');
 });
 
-router.post('/', function(request, response){
+router.post('/login', function(request, response){
 	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
  var user = {
       	username : request.body.username,
