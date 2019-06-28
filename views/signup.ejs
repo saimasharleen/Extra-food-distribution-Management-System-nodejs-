@@ -33,22 +33,22 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="/index">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/signup">Signup</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#about">About</a>
+                        <a class="nav-link" href="/index#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#faq">Works </a>
+                        <a class="nav-link" href="/index#faq">Works </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html#contact">Features</a>
+                        <a class="nav-link" href="/index#contact">Features</a>
                     </li>
                 </ul>
             </div>
@@ -65,54 +65,54 @@
             </div>
 
        <div class="form">
-        <form id="registration_form">
+        <form id="registration_form" method="post">
             <div>
-                <input type="text" id="form_fname" placeholder="Enter Your First Name" name="" required="">
+                <input type="text" id="form_fname" placeholder="Enter Your First Name" name="firstname" required="">
                 <span class="error_form" id="fname_error_message"></span>   
             </div>
             <div>
-                <input type="text" id="form_sname" name="" placeholder="Enter Your Second Name" required="">
+                <input type="text" id="form_sname" name="lastname" placeholder="Enter Your Second Name" required="">
                 <span class="error_form" id="sname_error_message"></span>   
             </div>
             <div>
-                <input type="text" id="form_uname" name="" placeholder="Enter Your UserName" required="">
+                <input type="text" id="form_uname" name="username" placeholder="Enter Your UserName" required="">
                 <span class="error_form" id="uname_error_message"></span>   
             </div>
             <div>
-                <input type="email" id="form_email" placeholder="Enter Your Email" name="" required="">
+                <input type="email" id="form_email" placeholder="Enter Your Email" name="email" required="">
                 <span class="error_form" id="email_error_message"></span>
                 
             </div>
             <div>
-                <input type="text" id="form_phoneno" placeholder="Enter Your Phone Number" name="" required="">
+                <input type="text" id="form_phoneno" placeholder="Enter Your Phone Number" name="phoneno" required="">
                 <span class="error_form" id="phoneno_error_message"></span>
     
             </div>
             <div>
-                <input type="text" id="form_area" placeholder="Enter Your Area" name="" required="">
+                <input type="text" id="form_area" placeholder="Enter Your Area" name="area" required="">
                 <span class="error_form" id="area_error_message"></span>
     
             </div>
             <div id="form_usertype">
                 <font color="#fff" style="width:0px">Select Usertype:</font>
-                <input type="radio" id="owner" style="width:0px" name="usertype" required="" ><font color="#fff">Owner</font>
+                <input type="radio" id="owner" style="width:0px" name="usertype" value="owner" required="" ><font color="#fff">Owner</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="admin" style="width:0px" name="usertype" required="" ><font color="#fff">Admin</font>
+                <input type="radio" id="admin" style="width:0px" name="usertype" value="admin" required="" ><font color="#fff">Admin</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="volunteer" style="width:0px" name="usertype" required="" ><font color="#fff">Volunteer</font>
+                <input type="radio" id="volunteer" style="width:0px" name="usertype" value="volunteer" required="" ><font color="#fff">Volunteer</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="eventmanager" style="width:0px" name="usertype" required="" ><font color="#fff">Event Manager</font>
+                <input type="radio" id="eventmanager" style="width:0px" name="usertype" value="eventmanager" required="" ><font color="#fff">Event Manager</font>
                 <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="generaluser" style="width:0px" name="usertype" required="" ><font color="#fff">GeneralUser</font>
+                <input type="radio" id="generaluser" style="width:0px" name="usertype" value="generaluser" required="" ><font color="#fff">GeneralUser</font>
                 <span class="error_form" id="usertype_error_message"></span>
 
             </div>
             <i class="fa fa-eye" id="eye" onclick="togglepass()"></i>
-                <input type="password" id="form_password" placeholder="Enter Your Password" name="" required="">
+                <input type="password" id="form_password" placeholder="Enter Your Password" name="password" required="">
                 <span class="error_form" id="password_error_message"></span>
 
             <div>
-                <input type="password" id="form_retype_password" placeholder="Re-Enter Your Password" name="" required="">
+                <input type="password" id="form_retype_password" placeholder="Re-Enter Your Password" name="c_password" required="">
                 <span class="error_form" id="retype_password_error_message"></span>    
             </div>
              <button type="submit" id="submit" value="Register">Signup</button>
@@ -149,3 +149,4 @@
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/custom.js"></script>
 </body>
+</html>
