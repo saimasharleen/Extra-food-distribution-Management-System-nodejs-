@@ -50,5 +50,20 @@ router.get('/notice', function(request, response){
 	
 });
 
+
+router.post('/notice', function(request, response){
+
+    var user = {
+      	post: request.body.notice
+          
+      };
+
+
+       adminModel.insert(user,function(status){
+         response.redirect('/');
+        });
+
+	});
+
 module.exports = router;
 
