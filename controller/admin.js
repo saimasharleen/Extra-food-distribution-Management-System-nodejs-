@@ -12,8 +12,59 @@ router.get('/', function(request, response){
 	
 });
 
-router.post('/', function(request, response){
-	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
+
+router.get('/reject/:username', function(request, response){
+	
+    
+    	 var username= request.params.username;
+
+
+   
+	adminModel.update(username, function(status){
+		console.log(username);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
 });
 
+
+router.get('/accept/:username', function(request, response){
+	
+    
+    	 var username= request.params.username;
+
+
+   
+	adminModel.updateAccept(username, function(status){
+		console.log(username);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
+
+});
+
+router.get('/notice', function(request, response){
+	
+    response.render('admin/notice');
+	
+});
+
+
+router.post('/notice', function(request, response){
+
+    var user = {
+      	post: request.body.notice
+          
+      };
+
+
+       adminModel.insert(user,function(status){
+         response.redirect('/');
+        });
+
+	});
+
 module.exports = router;
+

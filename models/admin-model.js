@@ -16,7 +16,32 @@ module.exports={
 			callback(result);
 		});
 	},
+
+
+	update: function(user, callback){
+		var sql = "UPDATE userLogin set status='reject' where username=?";
+
+		db.execute(sql, [user], function(status){
+			callback(status);
+		});
+	},
+
+updateAccept: function(user, callback){
+		var sql = "UPDATE userLogin set status='accept' where username=?";
+
+		db.execute(sql, [user], function(status){
+			callback(status);
+		});
+	},
 	
 	
+insert: function(user, callback){
+		var sql = "INSERT INTO admin values(null, ?)";
+		db.execute(sql, [user.post], function(success){
+			callback(success);
+		});
+	},
+
+
 	
 }

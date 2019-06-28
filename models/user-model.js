@@ -9,7 +9,12 @@ module.exports={
 			callback(result[0]);
 		});
 	},*/
-
+	getNotice: function(callback){
+		var sql = "SELECT * FROM admin ORDER BY id DESC LIMIT 5";
+		db.getResult(sql, [], function(result){
+			callback(result);
+		});
+	},
 	getAll: function(callback){
 		var sql = "SELECT * FROM user";
 		db.getResult(sql, [], function(result){
@@ -32,16 +37,22 @@ module.exports={
 		var sql = "select * from userlogin where username=? and password=?";
 		db.getResult(sql, [user.username, user.password], function(result){
 
-			var x= "abc";
+            var resultconfirm= {
+				 usertype: "",
+                 status: ""
+				};
+			
 			if(result.length > 0){
-
-				 x= result[0].usertype;
+				var resultconfirm= {
+				 usertype: result[0].usertype,
+                 status: result[0].status
+				};
 				//console.log(x);
 				
-				callback(x);
+				callback(resultconfirm);
 
 			}else{
-				callback(x);
+				callback(resultconfirm);
 			}
 		});
 	},
