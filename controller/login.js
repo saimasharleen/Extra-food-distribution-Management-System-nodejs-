@@ -4,6 +4,7 @@ var userModel = require.main.require('./models/user-model');
 var router = express.Router();
 
 router.get('/', function(request, response){
+
       userModel.getNotice(function(status){
                        response.render('index',{userList: status});  
                         });
@@ -14,6 +15,7 @@ router.get('/login', function(request, response){
 });
 
 router.post('/login', function(request, response){
+
 	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
  var user = {
       	username : request.body.username,
@@ -31,6 +33,7 @@ router.post('/login', function(request, response){
       			response.redirect('/volunteer');
       		}
                   else if(status.usertype == 'admin' && status.status== 'accept'){
+
                         //console.log(user.username);
                         response.redirect('/admin');
                   }

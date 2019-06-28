@@ -26,9 +26,9 @@ app.use('/signup', signup);
 app.use('/', login);
 app.use('/admin', admin);
 app.use('/volunteer', volunteer);
-/*app.get('/index', function(request, response){
+app.get('/index', function(request, response){
 	response.render('index');
-}); */
+});
 
 
 //SERVER STARTUP
