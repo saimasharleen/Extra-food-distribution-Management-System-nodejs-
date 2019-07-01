@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="/assets/css/profile.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -51,7 +52,7 @@
                         <a class="nav-link" href="/volunteer/profile">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">logout</a>
+                        <a class="nav-link" href="/logout">logout</a>
                     </li>
                 </ul>
             </div>
@@ -66,34 +67,43 @@
 <br>
 <br>
 <br>
-
-<form method="post">
-<table class="w3-table-all">
+<div id="">
+    <img id="image" src="/storage/<%= userList.u_img %>">
+</div>
+<div id="">
+<table>
     <thead>
-      <tr class="w3-light-grey w3-hover-blue">
-        <th>First Name</th>
-        <th></th>
+        <tr>
+            <th><h2>Username:</h2></th>
+            <th><h3><%= userList.username %></h3></th>
+        </tr>
+      <tr>
+        <th><h2>First Name:</h2></th>
+        <th><h3></h3></th>
       </tr>
-      <tr class="w3-light-grey w3-hover-blue">
-        <th>Last Name</th>
-        <th></th>
+      <tr>
+        <th><h2>Last Name:</h2></th>
+        <th><h3></h3></th>
       </tr>
-      <tr class="w3-light-grey w3-hover-blue">
-        <th>Email</th>
-        <th></th>
+      <tr>
+        <th><h2>Email:</h2></th>
+        <th><h3></h3></th>
       </tr>
-      <tr class="w3-light-grey w3-hover-blue">
-        <th>Phone number</th>
-        <th></th>
+      <tr>
+        <th><h2>Phone number:</h2></th>
+        <th><h3></h3></th>
       </tr>
-      <tr class="w3-light-grey w3-hover-blue">
-        <th>Area</th>
-        <th></th>
+      <tr>
+        <th><h2>Area:</h2></th>
+        <th><h3></h3></th>
       </tr>
-    </thead>
-                  
+    </thead>          
   </table>
-</form>
+<tr>
+    <form action="/volunteer/editprofile">
+       <input type="submit" value="Edit Profile" />
+    </form>
+</tr>
 </div>
 
 <!------------table part End---------------->
