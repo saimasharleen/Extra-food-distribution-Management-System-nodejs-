@@ -28,24 +28,28 @@ router.post('/login', function(request, response){
       }else
       {
       	userModel.validate(user,function(status){
-      		if(status == 'volunteer'){
+      		if(status.usertype == 'volunteer' && status.status== 'accept'){
       			//console.log(user.username);
+                        request.session.id = status.uname;
+                        var x = request.session.id;
+                        console.log(x);
       			response.redirect('/volunteer');
       		}
                   else if(status.usertype == 'admin' && status.status== 'accept'){
 
                         //console.log(user.username);
+                        request.session.id = status.id;
                         response.redirect('/admin');
                   }
-                  else if(status == 'owner'){
+                  else if(status.usertype == 'owner' && status.status== 'accept'){
                         //console.log(user.username);
                         response.redirect('/owner');
                   }
-                  else if(status == 'eventmanager'){
+                  else if(status.usertype == 'eventmanager' && status.status== 'accept'){
                         //console.log(user.username);
                         response.redirect('/eventmanager');
                   }
-                  else if(status == 'generaluser'){
+                  else if(status.usertype == 'generaluser' && status.status== 'accept'){
                         //console.log(user.username);
                         response.redirect('/generaluser');
                   }
