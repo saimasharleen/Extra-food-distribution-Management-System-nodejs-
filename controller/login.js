@@ -39,23 +39,27 @@ router.post('/login', function(request, response){
                   else if(status.usertype == 'admin' && status.status== 'accept'){
 
                         //console.log(user.username);
-                        request.session.id = status.id;
+                        request.session.un = status.un;
                         response.redirect('/admin');
                   }
                 else if(status.usertype == 'superadmin' && status.status== 'accept'){
                         //console.log(user.username);
+                        request.session.un = status.un;
                         response.redirect('/superadmin');
                   }
                   else if(status.usertype == 'owner' && status.status== 'accept'){
                         //console.log(user.username);
+                        request.session.un = status.un;
                         response.redirect('/owner');
                   }
                   else if(status.usertype == 'eventmanager' && status.status== 'accept'){
                         //console.log(user.username);
+                        request.session.un = status.un;
                         response.redirect('/eventmanager');
                   }
                   else if(status.usertype == 'generaluser' && status.status== 'accept'){
                         //console.log(user.username);
+                        request.session.un = status.un;
                         response.redirect('/generaluser');
                   }
 
