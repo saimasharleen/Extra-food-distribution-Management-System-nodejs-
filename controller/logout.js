@@ -4,7 +4,7 @@ var router = express.Router();
 
 router.get('/', function (req, res) {
 	
-	req.session.id = "";
+	req.session.un = "";
 	res.redirect('/login');
 });
 
