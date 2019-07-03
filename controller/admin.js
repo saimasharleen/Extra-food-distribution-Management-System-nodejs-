@@ -3,7 +3,14 @@ var router = express.Router();
 var mysql = require('mysql');
 var adminModel = require.main.require('./models/admin-model');
 
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'extrafood'
+});
 
+connection.connect();
 router.get('/', function(request, response){
 	adminModel.getAll(function(status){
                        response.render('admin/home',{userList: status});  
@@ -26,6 +33,17 @@ router.get('/reject/:username', function(request, response){
                         });
       			//cons
 	
+});
+router.get('/search',function(req,res){
+connection.query('SELECT username from user where username like "%'+req.query.key+'%"', function(err, rows, fields) {
+    if (err) throw err;
+    var data=[];
+    for(i=0;i<rows.length;i++)
+      {
+        data.push(rows[i].username);
+      }
+      res.end(JSON.stringify(data));
+  });
 });
 
 
