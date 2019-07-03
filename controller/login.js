@@ -26,7 +26,7 @@ router.post('/login', function(request, response){
       }else
       {
       	userModel.validate(user,function(status){
-      		if(status == 'volunteer'){
+      		if(status == 'volunteer' && status.status== 'accept'){
       			//console.log(user.username);
       			response.redirect('/volunteer');
       		}
@@ -34,18 +34,29 @@ router.post('/login', function(request, response){
                         //console.log(user.username);
                         response.redirect('/admin');
                   }
-                  else if(status == 'owner'){
+                  else if(status == 'owner' && status.status== 'accept'){
                         //console.log(user.username);
                         response.redirect('/owner');
                   }
-                  else if(status == 'eventmanager'){
+                  else if(status == 'eventmanager' && status.status== 'accept'){
                         //console.log(user.username);
                         response.redirect('/eventmanager');
                   }
-                  else if(status == 'generaluser'){
+                  else if(status == 'generaluser' && status.status== 'accept'){
                         //console.log(user.username);
                         response.redirect('/generaluser');
                   }
+                 
+                   else if(status.usertype == 'superadmin' && status.status== 'accept'){
+                        //console.log(user.username);
+                        response.redirect('/superadmin');
+                  }
+
+                   else if(status.usertype == 'admin' && status.status== 'accept'){
+                        //console.log(user.username);
+                        response.redirect('/admin');
+                  }
+
 
       		else{
 
