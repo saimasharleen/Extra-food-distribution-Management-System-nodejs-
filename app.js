@@ -1,9 +1,11 @@
 //DECLARATION
 var express 	= require('express');
 var bodyParser 	= require('body-parser');
-//var home 		= require('./controllers/home');
 var signup 		= require('./controller/signup');
+var login 		= require('./controller/login');
 var admin 		= require('./controller/admin');
+var superadmin 		= require('./controller/superadmin');
+var volunteer 		= require('./controller/volunteer');
 var app = express();
 
 
@@ -13,22 +15,26 @@ app.use('/assets', express.static('assets'));
 
 
 //MIDDLEWARE
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+//app.use(bodyParser.json());
 
 
 //ROUTING
 app.use('/signup', signup);
+app.use('/', login);
 app.use('/admin', admin);
-/*app.use('/home', home);*/
-app.get('/', function(request, response){
-	/*response.send('Hello from expressJs');*/
+app.use('/superadmin', superadmin);
+app.use('/volunteer', volunteer);
+/*app.get('/index', function(request, response){
 	response.render('index');
-});
+}); */
 
 
 //SERVER STARTUP
 app.listen(3000, function(){
-	console.log("Server startead at 3000...");
+	console.log("Server started at 3000...");
 });
-
 
