@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Signup Form</title>
-    <link rel="icon" href="/assets/images/signup.png">
+    <title>login</title>
+    <link rel="icon" href="/assets/images/logo.png">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/all.css">
     <link rel="stylesheet" href="/assets/css/lightbox.min.css">
@@ -11,11 +11,11 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/media.css">
-    <link rel="stylesheet" href="/assets/css/registration.css">
+    <link rel="stylesheet" href="/assets/css/login.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="/assets/js/signupv.js"></script>
+    <script type="text/javascript" src="/assets/js/loginv.js"></script>
 </head>
 <body>
 <!------------header part start--------------->
@@ -60,64 +60,26 @@
 <div class="full_wrapper footer_bg">
         <div class="wrapper footer_main">
            <div class="work_head footer_head">
-               <center><h2>Sign Up!</h2></center>
+               <center><h2>Login</h2></center>
             
             </div>
-
-       <div class="form">
-        <form id="registration_form" method="post">
-            <div>
-                <input type="text" id="form_fname" placeholder="Enter Your First Name" name="firstname" required="">
-                <span class="error_form" id="fname_error_message"></span>   
-            </div>
-            <div>
-                <input type="text" id="form_sname" name="lastname" placeholder="Enter Your Second Name" required="">
-                <span class="error_form" id="sname_error_message"></span>   
-            </div>
-            <div>
-                <input type="text" id="form_uname" name="username" placeholder="Enter Your UserName" required="">
-                <span class="error_form" id="uname_error_message"></span>   
-            </div>
-            <div>
-                <input type="email" id="form_email" placeholder="Enter Your Email" name="email" required="">
-                <span class="error_form" id="email_error_message"></span>
+            <div class="form">
+                <form id="login_form" method="post">
+                    <div>
+                    <input type="text"  id="form_uname"  placeholder="Username" name="username" required=""  >
+                    <span class="error_form" id="uname_error_message"></span>
+                     </div>
+                    <i class="fa fa-eye" id="eye" onclick="togglepass()"></i>
+                    <input type="password" id="pass" placeholder="Password"  name="password" required="">
+                    <span class="error_form" id="pass_error_message"></span>
+                    <button type="submit" id="submit" value="login">Login</button>
                 
+                <p><font color="#fff">Not a member?</font></p> 
+                <a href="/signup"><font color="#fff">Sign Up!!</font></a>
+                <br>
+                <a href=""><font color="#fff">Forgot Pasword??</font></a>
+                </form>
             </div>
-            <div>
-                <input type="text" id="form_phoneno" placeholder="Enter Your Phone Number" name="phoneno" required="">
-                <span class="error_form" id="phoneno_error_message"></span>
-    
-            </div>
-            <div>
-                <input type="text" id="form_area" placeholder="Enter Your Area" name="area" required="">
-                <span class="error_form" id="area_error_message"></span>
-    
-            </div>
-            <div id="form_usertype">
-                <font color="#fff" style="width:0px">Select Usertype:</font>
-                <input type="radio" id="owner" style="width:0px" name="usertype" value="owner" required="" ><font color="#fff">Owner</font>
-                <span class="error_form" id="usertype_error_message"></span>
-               
-                <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="volunteer" style="width:0px" name="usertype" value="volunteer" required="" ><font color="#fff">Volunteer</font>
-                <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="eventmanager" style="width:0px" name="usertype" value="eventmanager" required="" ><font color="#fff">Event Manager</font>
-                <span class="error_form" id="usertype_error_message"></span>
-                <input type="radio" id="generaluser" style="width:0px" name="usertype" value="generaluser" required="" ><font color="#fff">GeneralUser</font>
-                <span class="error_form" id="usertype_error_message"></span>
-
-            </div>
-            <i class="fa fa-eye" id="eye" onclick="togglepass()"></i>
-                <input type="password" id="form_password" placeholder="Enter Your Password" name="password" required="">
-                <span class="error_form" id="password_error_message"></span>
-
-            <div>
-                <input type="password" id="form_retype_password" placeholder="Re-Enter Your Password" name="c_password" required="">
-                <span class="error_form" id="retype_password_error_message"></span>    
-            </div>
-             <button type="submit" id="submit" value="Register">Signup</button>
-        </form>
-</div>
         </div>
     </div>
 
@@ -131,7 +93,7 @@
     eye.addEventListener('onclick',togglepass);
 
     function togglepass(){
-       var x = document.getElementById('form_password');
+       var x = document.getElementById('pass');
        if(x.type==="password"){
         x.type="text";
         console.log(x.type);
