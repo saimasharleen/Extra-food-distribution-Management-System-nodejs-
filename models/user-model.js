@@ -45,7 +45,7 @@ module.exports={
 			
 			if(result.length > 0){
 				var resultconfirm= {
-				uname : result[0].username,
+				un : result[0].username,
 				 usertype: result[0].usertype,
                  status: result[0].status
 				};
