@@ -1,4 +1,5 @@
 var express = require('express');
+
 var mysql   = require('mysql');
 var multer  = require('multer');
 var path    = require('path');
@@ -172,6 +173,5 @@ upload(request, response, function(err){
 }
 });
 });
-
 
 module.exports = router;
