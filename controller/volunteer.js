@@ -18,20 +18,11 @@ router.get('/notification', function(request, response){
 	response.render('volunteer/notification');
 });
 
-router.get('/editprofile', function(request, response){
-	user = 1;
+router.get('/profile', function(request, response){
+	user = request.session.un;
+	//console.log(user);
 volunteerModel.get(user, function(status){
 			//console.log(status);
-    		response.render('volunteer/editprofile',{userList:status});
-    	});	 
-	});
-
-
-router.get('/profile', function(request, response){
-	user = request.session.id;
-	console.log(user);
-volunteerModel.get(user, function(status){
-			console.log(status);
     		response.render('volunteer/profile',{userList:status});
     	});	  
 });
@@ -43,8 +34,34 @@ router.get('/ranking', function(request, response){
 router.get('/vote', function(request, response){
 	response.render('volunteer/vote');
 });
-router.post('/', function(request, response){
-	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
+
+router.get('/editdata', function(request, response){
+	
+	user = request.session.un;
+volunteerModel.get(user, function(status){
+			//console.log(status);
+    		response.render('volunteer/editdata',{userList:status});
+    	});	
+});
+router.post('/editdata',function(request, response){
+      var user={
+      	username  : request.session.un,
+      	firstname : request.body.firstname,
+      	lastname  : request.body.lastname,
+      	email     : request.body.email,
+      	phoneno   : request.body.phoneno,
+      	area      : request.body.area
+      };
+      console.log(user);
+      volunteerModel.updatedata(user, function(status){
+
+    		if(status == true){
+    			response.redirect('/volunteer/editprofile');
+    		}else{
+    			response.send('Error in adding information ');
+    		}
+    	});
+  
 });
 
 var storage = multer.diskStorage({
@@ -58,31 +75,28 @@ var upload = multer({
 	storage: storage
 }).single('photos');
 
-router.get('/',function(req, res){
-	response.render('');
-});
 
+router.get('/editprofile', function(request, response){
+	 user = request.session.un;
+volunteerModel.get(user, function(status){
+			//console.log(status);
+    		response.render('volunteer/editprofile',{userList:status});
+    	});	
+	});
 router.post('/editprofile', function(request, response){
-	var user = {
-		fname : request.body.firstname,
-		lname : request.body.lastname,
-		email : request.body.email,
-		phoneno : request.body.phoneno,
-		area : request.body.area,
-		id: request.session.id
-	}
-//console.log(user1);
+
+	var un  =  request.session.un;
+
 upload(request, response, function(err){
   if(err){
-    response.render('volunteer/home');
+    response.redirect('volunteer/editprofile');
   }else{
-    console.log(request.file);
-    console.log(request.file.filename);
-    /*userModel.getAllpost(function(status){
-      var l = status.length;
-      var s= status[l-1].id;*/
+    //console.log(request.file);
+    //console.log(request.file.filename);
+    
       var user={
-         photos : request.file.filename 
+      	username  : un,
+        photos    : request.file.filename 
       };
       console.log(user);
       volunteerModel.updatepost(user, function(status){
