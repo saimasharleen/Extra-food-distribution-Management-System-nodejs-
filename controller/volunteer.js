@@ -7,32 +7,68 @@ var volunteerModel = require.main.require('./models/volunteer-model');
 var router = express.Router();
 
 router.get('/', function(request, response){
-	response.render('volunteer/home');
+  if(request.session.un != ""){
+    console.log(request.session.un);
+      response.render('volunteer/home');
+  }else{
+    response.redirect('/login');
+}
+	//response.render('volunteer/home');
 });
 
 router.get('/acceptedpost', function(request, response){
-	response.render('volunteer/acceptedpost');
+  if(request.session.un != ""){
+    console.log(request.session.un);
+      response.render('volunteer/acceptedpost');
+  }else{
+    response.redirect('/login');
+}
+	//response.render('volunteer/acceptedpost');
 });
 
 router.get('/notification', function(request, response){
-	response.render('volunteer/notification');
+  if(request.session.un != ""){
+    console.log(request.session.un);
+      response.render('volunteer/notification');
+  }else{
+    response.redirect('/login');
+}
+	//response.render('volunteer/notification');
 });
 
 router.get('/profile', function(request, response){
 	user = request.session.un;
 	//console.log(user);
 volunteerModel.get(user, function(status){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+      response.render('volunteer/profile',{userList:status});
+  }else{
+    response.redirect('/login');
+}
 			//console.log(status);
-    		response.render('volunteer/profile',{userList:status});
+    		//response.render('volunteer/profile',{userList:status});
     	});	  
 });
 
 router.get('/ranking', function(request, response){
-	response.render('volunteer/ranking');
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('volunteer/ranking');
+  }else{
+    response.redirect('/login');
+}
+	//response.render('volunteer/ranking');
 });
 
 router.get('/vote', function(request, response){
-	response.render('volunteer/vote');
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('volunteer/vote');
+  }else{
+    response.redirect('/login');
+}
+	//response.render('volunteer/vote');
 });
 
 router.get('/editdata', function(request, response){
@@ -40,7 +76,13 @@ router.get('/editdata', function(request, response){
 	user = request.session.un;
 volunteerModel.get(user, function(status){
 			//console.log(status);
-    		response.render('volunteer/editdata',{userList:status});
+      if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('volunteer/editdata',{userList:status});
+  }else{
+    response.redirect('/login');
+}
+    		//response.render('volunteer/editdata',{userList:status});
     	});	
 });
 router.post('/editdata',function(request, response){
@@ -56,7 +98,13 @@ router.post('/editdata',function(request, response){
       volunteerModel.updatedata(user, function(status){
 
     		if(status == true){
-    			response.redirect('/volunteer/editprofile');
+           if(request.session.un != ""){
+    console.log(request.session.un);
+     response.redirect('/volunteer/editprofile');
+  }else{
+    response.redirect('/login');
+}
+    			//response.redirect('/volunteer/editprofile');
     		}else{
     			response.send('Error in adding information ');
     		}
@@ -80,7 +128,13 @@ router.get('/editprofile', function(request, response){
 	 user = request.session.un;
 volunteerModel.get(user, function(status){
 			//console.log(status);
-    		response.render('volunteer/editprofile',{userList:status});
+      if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('volunteer/editprofile',{userList:status});
+  }else{
+    response.redirect('/login');
+}
+    		//response.render('volunteer/editprofile',{userList:status});
     	});	
 	});
 router.post('/editprofile', function(request, response){
@@ -102,14 +156,21 @@ upload(request, response, function(err){
       volunteerModel.updatepost(user, function(status){
 
     		if(status == true){
-    			response.redirect('/volunteer/profile');
+          if(status == true){
+           if(request.session.un != ""){
+    console.log(request.session.un);
+     response.redirect('/volunteer/profile');
+  }else{
+    response.redirect('/login');
+}
+    			//response.redirect('/volunteer/profile');
     		}else{
     			response.send('Error in adding pic');
     		}
-    	});
   }
-})
-
+});
+}
+});
 });
 
 
