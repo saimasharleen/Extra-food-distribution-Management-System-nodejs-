@@ -7,13 +7,55 @@ var volunteerModel = require.main.require('./models/volunteer-model');
 var router = express.Router();
 
 router.get('/', function(request, response){
+  user = request.session.un;
+  //console.log(user);
+ volunteerModel.getinfo(function(status){
   if(request.session.un != ""){
+    console.log(request.session.un);
+      response.render('volunteer/home',{userList:status});
+  }else{
+    response.redirect('/login');
+}
+      //console.log(status);
+        //response.render('volunteer/profile',{userList:status});
+      }); 
+  /*if(request.session.un != ""){
     console.log(request.session.un);
       response.render('volunteer/home');
   }else{
     response.redirect('/login');
-}
+}*/
 	//response.render('volunteer/home');
+});
+
+router.get('/notification', function(request, response){
+  user = request.session.un;
+  //console.log(user);
+ volunteerModel.getnotification(function(status){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+      response.render('volunteer/notification',{userList:status});
+  }else{
+    response.redirect('/login');
+}
+      //console.log(status);
+        //response.render('volunteer/profile',{userList:status});
+      }); 
+});
+
+router.get('/notification/clear/:id', function(request, response){
+  
+    
+       var id= request.params.id;
+
+
+   
+  volunteerModel.clear(id, function(status){
+    //console.log(username);
+                       response.redirect('/volunteer/notification');  
+                        });
+            //cons
+  
 });
 
 router.get('/acceptedpost', function(request, response){
