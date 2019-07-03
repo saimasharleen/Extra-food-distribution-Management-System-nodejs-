@@ -28,6 +28,7 @@ router.post('/login', function(request, response){
       }else
       {
       	userModel.validate(user,function(status){
+
       		if(status.usertype == 'volunteer' && status.status== 'accept'){
       			//console.log(user.username);
                         request.session.un = status.un;
@@ -41,6 +42,7 @@ router.post('/login', function(request, response){
                         request.session.id = status.id;
                         response.redirect('/admin');
                   }
+
                   else if(status.usertype == 'owner' && status.status== 'accept'){
                         //console.log(user.username);
                         response.redirect('/owner');
@@ -53,6 +55,17 @@ router.post('/login', function(request, response){
                         //console.log(user.username);
                         response.redirect('/generaluser');
                   }
+                 
+                   else if(status.usertype == 'superadmin' && status.status== 'accept'){
+                        //console.log(user.username);
+                        response.redirect('/superadmin');
+                  }
+
+                   else if(status.usertype == 'admin' && status.status== 'accept'){
+                        //console.log(user.username);
+                        response.redirect('/admin');
+                  }
+
 
       		else{
 
