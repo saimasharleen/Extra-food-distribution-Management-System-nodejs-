@@ -30,9 +30,9 @@ router.post('/login', function(request, response){
       	userModel.validate(user,function(status){
       		if(status.usertype == 'volunteer' && status.status== 'accept'){
       			//console.log(user.username);
-                        request.session.id = status.uname;
-                        var x = request.session.id;
-                        console.log(x);
+                        request.session.un = status.un;
+                        /*var x = request.session.un;
+                        console.log(x);*/
       			response.redirect('/volunteer');
       		}
                   else if(status.usertype == 'admin' && status.status== 'accept'){
