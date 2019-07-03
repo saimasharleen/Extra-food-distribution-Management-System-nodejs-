@@ -67,10 +67,10 @@
 <br>
 <br>
 <br>
-<div id="">
+<div id="showimg">
     <img id="image" src="/storage/<%= userList.u_img %>">
 </div>
-<div id="">
+<div id="showinfo">
 <table>
     <thead>
         <tr>
@@ -79,28 +79,28 @@
         </tr>
       <tr>
         <th><h2>First Name:</h2></th>
-        <th><h3></h3></th>
+        <th><h3><%= userList.firstname %></h3></th>
       </tr>
       <tr>
         <th><h2>Last Name:</h2></th>
-        <th><h3></h3></th>
+        <th><h3><%= userList.lastname %></h3></th>
       </tr>
       <tr>
         <th><h2>Email:</h2></th>
-        <th><h3></h3></th>
+        <th><h3><%= userList.email %></h3></th>
       </tr>
       <tr>
         <th><h2>Phone number:</h2></th>
-        <th><h3></h3></th>
+        <th><h3><%= userList.phoneno %></h3></th>
       </tr>
       <tr>
         <th><h2>Area:</h2></th>
-        <th><h3></h3></th>
+        <th><h3><%= userList.area %></h3></th>
       </tr>
     </thead>          
   </table>
 <tr>
-    <form action="/volunteer/editprofile">
+    <form action="/volunteer/editdata">
        <input type="submit" value="Edit Profile" />
     </form>
 </tr>
