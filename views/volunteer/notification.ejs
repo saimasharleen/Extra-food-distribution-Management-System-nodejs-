@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/main.css">
     
 </head>
 <body>
@@ -70,29 +78,61 @@
 <br>
 <br>
 
-<table class="w3-table-all">
+<!-- <table class="w3-table-all">
     <thead>
+
       <tr class="w3-light-grey w3-hover-blue">
         <th>Restaurant Name</th>
         <th>Restaurant Post</th>
         <th>Actions</th>
       </tr>
     </thead>
+     <% for(var i=0; i < userList.length; i++) { %>
                   <tr>
-                    <td></td>
-                    <td></td>
+                    <td><%= userList[i].restaurantname %></td>
+                    <td><%= userList[i].restaurantd %></td>
                     <td>
-                        <input type="button" class="w3-button w3-gray" value="clear">
+                        <a href="/volunteer/notification/clear/<%= userList[i].id %>">Clear</a>
                     </td>
                   </tr>
-                  
+                  <% } %>
   </table>
 </div>
-
+ -->
+ <div class="limiter">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table>
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">Restaurant Name</th>
+                                <th class="column2">Restaurant Post</th>
+                                <th class="column3">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                   <% for(var i=0; i < userList.length; i++) { %>
+                                <tr>
+                                    <td class="column1"><%= userList[i].restaurantname %></td>
+                                    <td class="column2"><%= userList[i].restaurantd %></td>
+                                    <td class="column3"><a href="/volunteer/notification/clear/<%= userList[i].id %>">Clear</a> </td>
+                                </tr>
+                               <% } %>  
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+    </div>
 <!------------table part End---------------->
 
 
 <!------------Footer part End------------------------->
+    <script src="/assets/theme/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/assets/theme/vendor/bootstrap/js/popper.js"></script>
+    <script src="/assets/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/theme/vendor/select2/select2.min.js"></script>
+    <script src="/assets/theme/js/main.js"></script>
   
     <script src="/assets/js/jquery-1.12.4.min.js"></script>
     <script src="/assets/js/slick.min.js"></script>
