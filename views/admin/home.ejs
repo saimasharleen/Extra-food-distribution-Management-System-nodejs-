@@ -48,6 +48,7 @@
                         <a class="nav-link" href="">Profile</a>
                     </li>
 
+
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/notice">Add notice</a>   <!-- for sending to next page -->
                     </li>
@@ -59,6 +60,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/admin/listuser">Lists</a>
                     </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="">logout</a>
                     </li>
@@ -84,12 +86,15 @@
                 <th width="30%"><center>Name</center></th>
         
                 <th width="40%"><center>User type</center></th>
+
                 <th width="50%"><center>status</center></th>
+
                 <th width="50%"><center>Action</center></th>
             </tr>
    <% for(var i=0; i < userList.length; i++) { %>
             <tr>
                 <th width="30%"><center><%= userList[i].username %></center></th>               
+
                 <td width="40%"><center><%= userList[i].usertype %></center></td>
                 <td width="50%"><center><%= userList[i].status %></center></td>
                 <td>

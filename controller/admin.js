@@ -42,6 +42,7 @@ router.get('/accept/:username', function(request, response){
                         });
       			//cons
 	
+
 });
 
 // get notice
