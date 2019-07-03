@@ -4,6 +4,7 @@ var bodyParser 	= require('body-parser');
 var signup 		= require('./controller/signup');
 var login 		= require('./controller/login');
 var admin 		= require('./controller/admin');
+var superadmin 		= require('./controller/superadmin');
 var volunteer 		= require('./controller/volunteer');
 var app = express();
 
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({
 app.use('/signup', signup);
 app.use('/', login);
 app.use('/admin', admin);
+app.use('/superadmin', superadmin);
 app.use('/volunteer', volunteer);
 /*app.get('/index', function(request, response){
 	response.render('index');
