@@ -17,6 +17,7 @@ module.exports={
 		});
 	},
 
+
 	update: function(user, callback){
 		var sql = "UPDATE userLogin set status='reject' where username=?";
 
@@ -81,6 +82,5 @@ updateNotice: function(user, callback){
 			callback(status);
 		});
 	},
-
 	
 }

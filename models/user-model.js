@@ -36,13 +36,17 @@ module.exports={
 	validate: function(user, callback){
 		var sql = "select * from userlogin where username=? and password=?";
 		db.getResult(sql, [user.username, user.password], function(result){
+
+
             var resultconfirm= {
 				 usertype: "",
-                 status: ""
+                 status: "",
+                 id :""
 				};
 			
 			if(result.length > 0){
 				var resultconfirm= {
+				un : result[0].username,
 				 usertype: result[0].usertype,
                  status: result[0].status
 				};
