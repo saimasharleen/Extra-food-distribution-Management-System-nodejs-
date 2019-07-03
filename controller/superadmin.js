@@ -5,43 +5,43 @@ var adminModel = require.main.require('./models/admin-model');
 
 
 router.get('/', function(request, response){
-	adminModel.getAll(function(status){
+  adminModel.getAll(function(status){
                        response.render('superadmin/home',{userList: status});  
                         });
-      			//cons
-	
+            //cons
+  
 });
 
 
 router.get('/reject/:username', function(request, response){
-	
+  
     
-    	 var username= request.params.username;
+       var username= request.params.username;
 
 
    
-	adminModel.update(username, function(status){
-		console.log(username);
+  adminModel.update(username, function(status){
+    console.log(username);
                        response.redirect('/superadmin');  
                         });
-      			//cons
-	
+            //cons
+  
 });
 
 
 router.get('/accept/:username', function(request, response){
-	
+  
     
-    	 var username= request.params.username;
+       var username= request.params.username;
 
 
    
-	adminModel.updateAccept(username, function(status){
-		console.log(username);
+  adminModel.updateAccept(username, function(status){
+    console.log(username);
                        response.redirect('/superadmin');  
                         });
-      			//cons
-	
+            //cons
+  
 });
 
 // get notice
@@ -53,7 +53,7 @@ router.get('/noticeupdated', function(request, response){
          response.render('superadmin/noticeupdated',{userList: status});
         });
 
-	});
+  });
 
 // ends
 
@@ -72,80 +72,80 @@ router.get('/adminsignup', function(request, response){
 
 
 router.get('/notice', function(request, response){
-	
+  
     response.render('superadmin/notice');
-	
+  
 });
 
 
 router.get('/noticeupdated', function(request, response){
-	
+  
     response.render('superadmin/noticeupdated');
-	
+  
 });
 
 router.post('/notice', function(request, response){
 
     var user = {
-      	post: request.body.notice
+        post: request.body.notice
           
       };
 
 
        adminModel.insert(user,function(status){
-         response.redirect('/');
+         response.redirect('/superadmin/noticeupdated');
         });
 
-	});
+  });
 
 
 router.get('/noticeupdated/delete/:id', function(request, response){
-	
+  
     
-    	 var id= request.params.id;
+       var id= request.params.id;
 
 
    
-	adminModel.deleteNotice(id, function(status){
-		//console.log(username);
+  adminModel.deleteNotice(id, function(status){
+    //console.log(username);
                        response.redirect('/superadmin/noticeupdated');  
                         });
-      			//cons
-	
+            //cons
+  
 });
 
 router.get('/noticeupdated/update/:id', function(request, response){
-	
+  
     
-    	 var id= request.params.id;
+       var id= request.params.id;
 
 
    
-	adminModel.getNotice2(id, function(status){
-		console.log(status[0].post);
+  adminModel.getNotice2(id, function(status){
+    console.log(status[0].post);
 
                        response.render('superadmin/updatenotice', {status});  
                         });
-      			//cons
-	
+            //cons
+  
 });
 router.post('/noticeupdated/update/:id', function(request, response){
-	
+  
     
-    	 var user = {
-    	 	id : request.params.id,
-    	 	post : request.body.notice
-    	 }
+       var user = {
+        id : request.params.id,
+        post : request.body.notice
+       }
 
 //console.log(user);
    
-	adminModel.updateNotice(user, function(status){
-		          
-		          console.log(status);
+  adminModel.updateNotice(user, function(status){
+              
+              console.log(status);
                        response.redirect('/superadmin');  
                         });
-      			//cons
-	
+            //cons
+  
 });
 
 // for login 
