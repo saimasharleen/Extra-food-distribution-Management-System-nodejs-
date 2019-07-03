@@ -19,7 +19,9 @@
 <br>
 <br>
 <br>
-
+<div id="">
+    <img id="image" src="/storage/<%= userList.u_img %>">
+</div>
 <form method="post" enctype="multipart/form-data">
 <div id="showinfo">
  <table>
@@ -28,26 +30,6 @@
             <th><h2>Upload photo</h2></th>
             <th><input type="file" name="photos"></th>
         </tr>
-      <tr>
-        <th><h2>First Name:<h2></th>
-        <th><h3><input type="text" name="firstname" value="<%= userList.firstname %>"></h3></th>
-      </tr>
-      <tr>
-        <th><h2>Last Name:</h2></th>
-        <th><h3><input type="text" name="lastname" value="<%= userList.lastname %>"></h3></th>
-      </tr>
-      <tr>
-        <th><h2>Email:</h2></th>
-        <th><h3><input type="text" name="email" value="<%= userList.email %>"></h3></th>
-      </tr>
-      <tr>
-        <th><h2>Phone number:</h2></th>
-        <th><h3><input type="text" name="phoneno" value="<%= userList.phoneno %>"></h3></th>
-      </tr>
-      <tr>
-        <th><h2>Area:</h2></th>
-        <th><h3><input type="text" name="area" value="<%= userList.area %>"></h3></th>
-      </tr>
       <tr>
         <th><button type="submit" value="submit">Submit</button></th>
       </tr>
