@@ -8,10 +8,13 @@ var logout      = require('./controller/logout');
 var admin 		= require('./controller/admin');
 var superadmin 		= require('./controller/superadmin');
 var volunteer 		= require('./controller/volunteer');
+var  mysql=require('mysql');
 var multer = require('multer');
 var path = require('path');
 
 var app = express();
+
+
 
 
 //CONFIGURATION
@@ -41,6 +44,7 @@ app.use('/volunteer', volunteer);
 /*app.get('/index', function(request, response){
 	response.render('index');
 });*/
+
 
 
 //SERVER STARTUP
