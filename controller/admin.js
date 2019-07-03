@@ -102,7 +102,7 @@ router.post('/notice', function(request, response){
 
 
        adminModel.insert(user,function(status){
-         response.redirect('/');
+         response.redirect('/admin/noticeupdated');
         });
 
 	});
