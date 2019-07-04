@@ -34,7 +34,7 @@ router.post('/', function(request, response){
                   }
                   else if(status == 'eventmanager'){
                         //console.log(user.username);
-                        response.redirect('/eventmanager');
+                        response.redirect('/event_manager');
                   }
                   else if(status == 'generaluser'){
                         //console.log(user.username);
