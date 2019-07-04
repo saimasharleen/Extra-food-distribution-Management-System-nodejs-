@@ -45,6 +45,12 @@ module.exports={
 			}
 		});
 	},
+	insertevent: function(user, callback){
+		var sql = "INSERT INTO event values(null, ?, ?, ?, ?)";
+		db.execute(sql, [user.eventname, user.eventdate, user.eventpost, user.location], (success) => {
+			callback(success);
+		});
+	}
 	/*getAllpost: function(callback){
 		var sql = "SELECT * FROM uploadpost";
 		db.getResult(sql, [], function(result){
