@@ -60,6 +60,12 @@
                         <a class="nav-link" href="/volunteer/profile">Profile</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/volunteer/eventlist">Eventlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/volunteer/volunteerlist">Volunteerlist</a>
+                    </li>
+                    <li class="nav-item">
 
                         <a class="nav-link" href="/logout">logout</a>
                     </li>
@@ -84,17 +90,21 @@
                     <table>
                         <thead>
                             <tr class="table100-head">
-                                <th class="column1">Restaurant Name</th>
-                                <th class="column2">Restaurant ID</th>
-                                <th class="column3">Actions</th>
+    
+                                <th class="column2">Restaurant Name</th>
+                                <th class="column3">Restaurant ID</th>
+                                <th class="column4">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
+                            <% for(var i=0; i < userList.length; i++) { %>
+                            
                                 <tr>
-                                    <td class="column1"></td>
-                                    <td class="column2"></td>
-                                    <td class="column3"> <div class="main">
-    <form id="rating-form">
+                                    <td class="column2"><%= userList[i].restaurantname %></td>
+                                    <td class="column3"><%= userList[i].restaurantd %></td>
+                                    <td class="column4"> <div class="main">
+    <form id="rating-form" method="post">
+        <input type="hidden" name="id" value="<%= userList[i].id %>">
 <span class="rating-star">
 <input type="radio" name="rating" value="5"><span class="star"></span>
  
@@ -105,11 +115,14 @@
     <input type="radio" name="rating" value="2"><span class="star"></span>
  
     <input type="radio" name="rating" value="1"><span class="star"></span>
+
 </span>
+<input type="submit" name="submit" value="submit">
 </form>
     <p>Thanks For Giving <span id="selected-rating" class="selected-rating" >0</span> Stars.</p>
     </div> </td>
                                 </tr>
+                                <% } %> 
                         </tbody>
                         
                     </table>
