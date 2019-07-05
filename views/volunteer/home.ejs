@@ -56,6 +56,12 @@
                         <a class="nav-link" href="/volunteer/profile">Profile</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="/volunteer/eventlist">Eventlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/volunteer/volunteerlist">Volunteerlist</a>
+                    </li>
+                    <li class="nav-item">
 
                         <a class="nav-link" href="/logout">logout</a>
                     </li>
@@ -89,7 +95,7 @@
                                 <tr>
                                     <td class="column1"><%= userList[i].restaurantname %></td>
                                     <td class="column2"><%= userList[i].restaurantd %></td>
-                                    <td class="column3"><a href="">Request</a> |<a href="">Cancel</a> </td>
+                                    <td class="column3"><a href="/volunteer/request/<%= userList[i].id %>">Request</a> |<a href="">Cancel</a> </td>
                                 </tr>
                                <% } %>  
                         </tbody>
