@@ -1,6 +1,6 @@
 var express = require('express');
 var mysql = require('mysql');
-var userModel = require.main.require('./models/user-model');
+var eventModel = require.main.require('./models/event-model');
 var router = express.Router(); 
 
 router.get('/', function(request, response){
@@ -18,17 +18,17 @@ router.post('/', function(request, response){
 	};
 
 	if(!user.eventname || !user.eventdate || !user.eventpost || !user.location){
-		response.redirect('event_manager/index');
+		response.redirect('event_manager');
 	}else{
-		userModel.insertevent(user, (status) => {
+		eventModel.insertevent(user, (status) => {
 			if(status == true){
-				response.send("Welcome Manager");
-				// response.redirect(/)
-			}else{
-				response.send("SQL error");
+				response.render('event_manager/index');
 			}
-		})
+		});
 	}
+
+	// eventModel.getAll( (status) => {
+	// 	response.render('event_manager/eventpost', {eventList: status});
 });
 
 module.exports = router;

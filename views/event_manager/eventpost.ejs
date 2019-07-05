@@ -50,9 +50,6 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/index#contact">Features</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./views/event_manager/eventpost">Events</a>
-                    </li>
                 </ul>
             </div>
         </nav>
@@ -62,28 +59,30 @@
 <!------------Form part start------------->
 <div class="full_wrapper footer_bg">
     <div class="wrapper footer_main">
-        <div class="work_head footer_head">
-          <center><h2>Post an Event</h2></center>
-        </div>
-            <div class="form">
-              <form method="post">
-                <input type="text" id="eventname" placeholder="Event Name" name="eventname" onkeyblur="geteventname()">
-                <br>
-                <div id='inputdiv'>
-                <input type="date" placeholder="Date" id='dateInput' name="eventdate" >
-                <br>
-                <div id='wrongDate'>
-                </div>
-                <input type="text" row="10" id="eventpost" placeholder="Event Post" name="eventpost" onkeyblur="geteventpost">
-                <br>
-                <input type="text" row="10" id="location" placeholder="Location" name="location">
-                <button type="submit" name="save">Add Event</button>
-                </div>
-                <br>
-              </form>
-        </div>
+       <div class="work_head footer_head">
+       </div>
+            <table border="1" color="white">
+              <tr>
+                <th width = "20%"> <center> Event Name </center> </th>
+                <th width = "30%"> <center> Event Date </center> </th>
+                <th width = "40%"> <center> Event Post </center> </th>
+                <th width = "50%"> <center> Event Location </center> </th> 
+              </tr>
+
+              <% for(var i=0; i < eventList.length; i++) { %>
+                
+              <tr>
+                <th width = "20%"><center><%= eventList[i].eventname %></center></th>
+                <th width = "30%"><center><%= eventList[i].eventdate %></center></th>
+                <th width = "40%"><center><%= eventList[i].eventpost %></center></th>
+                <th width = "50%"><center><%= eventList[i].location %></center></th>
+              </tr>
+
+              <% } %>
+
+            </table>
     </div>
-  </div>
+</div>
 
 <!------------Form part End---------------->
 
