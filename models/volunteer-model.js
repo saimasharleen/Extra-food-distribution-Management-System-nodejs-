@@ -16,10 +16,37 @@ module.exports={
 			callback(status);
 		});
 	},
+    
+    request: function(id, callback){
+		var sql = "UPDATE ownerpost set reqid='1' where id=?";
 
-   
+		db.execute(sql, [id], function(status){
+			callback(status);
+		});
+	},
+   getVolunteerList: function(callback){
+		var sql = "select * from userlogin where usertype='volunteer'" ;
+		db.getResult(sql, [], function(result){
+			//console.log(result);
+			callback(result);
+		});
+	},
+   getEventList: function(callback){
+		var sql = "select * from eventmanage" ;
+		db.getResult(sql, [], function(result){
+			//console.log(result);
+			callback(result);
+		});
+	},
+	getvote: function(callback){
+		var sql = "select * from ownerpost  ";
+		db.getResult(sql, [], function(result){
+			//console.log(result);
+			callback(result);
+		});
+	},
 	getinfo: function(callback){
-		var sql = "select * from ownerpost";
+		var sql = "select * from ownerpost where reqid= 0 ";
 		db.getResult(sql, [], function(result){
 			//console.log(result);
 			callback(result);
@@ -32,6 +59,12 @@ module.exports={
 			callback(result);
 		});
 	},
+	updatevote: function(user, callback){
+	var sql = "UPDATE ownerpost set vote = ? where id=?";
+	db.execute(sql, [user.rating, user.id], function(status){
+			callback(status);
+		});
+},
 updatedata: function(user, callback){
 	var sql = "UPDATE user set firstname=?, lastname=?, email=?, phoneno=?, area=? where username=?";
 	db.execute(sql, [user.firstname, user.lastname, user.email, user.phoneno, user.area, user.username], function(status){
