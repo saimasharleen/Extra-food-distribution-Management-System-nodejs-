@@ -40,13 +40,13 @@
                         <a class="nav-link" href="">Ranking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Profile</a>
+                        <a class="nav-link" href="/owner/profile">Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/owner/posts">Posts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">logout</a>
+                        <a class="nav-link" href="/logout">logout</a>
                     </li>
                 </ul>
             </div>
@@ -65,10 +65,13 @@
             <div class="form">
                 <form id="post_form" method="post">
                     <div>
-                    <input type="text"  id="" name="restaurantname" required=""  >
+                    <h2> Add a post: </h2>
+                    <br>
+                    <input type="text"  id="" name="restaurantname" required="" placeholder="Enter Restaurant Name" >
 					<br>
-					<input type="text"  id="description" name="restaurantd" required=""  >
+					<input type="text"  id="description" name="restaurantd" required="" placeholder="Enter description" >
                      </div>
+                     <br>
                     <button type="submit" id="addpost" value="addpost">Add Post!</button>
                 </form>
             </div>

@@ -34,19 +34,20 @@
                         <a class="nav-link" href="/owner">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/notification">Notification</a>
+                        <a class="nav-link" href="">Notification</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="">Ranking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Profile</a>
+                        <a class="nav-link" href="/owner/profile">Profile</a>
                     </li>
-                    <li class="nav-item">
+                     <li class="nav-item">
                         <a class="nav-link" href="/owner/posts">Posts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">logout</a>
+
+                        <a class="nav-link" href="/logout">logout</a>
                     </li>
                 </ul>
             </div>
@@ -67,9 +68,9 @@
                 <form id="post_form" method="post">
                     <div>
                         <p>Post Id: <%=user.id%> <p>
-                    <input type="text"  id="restname" name="restaurantname" required="" placeholder="Input Restaurant Name"  >
+                    <input type="text"  id="restname" name="restaurantname" value="<%=user.restaurantname%>" required="" placeholder="Input Restaurant Name"  >
                     <br>
-                    <input type="text"  id="description" name="restaurantd" required="" placeholder="Input Description" >
+                    <input type="text"  id="description" name="restaurantd" value="<%=user.restaurantd%>" required="" placeholder="Input Description" >
                      </div>
                     <button type="submit" id="addpost" value="addpost">Update</button>
                 </form>
