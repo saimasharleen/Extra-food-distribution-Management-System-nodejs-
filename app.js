@@ -6,11 +6,13 @@ var signup 		= require('./controller/signup');
 var login 		= require('./controller/login');
 var logout      = require('./controller/logout');
 var admin 		= require('./controller/admin');
+var owner		= require('./controller/owner');
 var superadmin 		= require('./controller/superadmin');
 var volunteer 		= require('./controller/volunteer');
 var  mysql=require('mysql');
 var multer = require('multer');
 var path = require('path');
+var expressSession 	= require('express-session');
 
 var app = express();
 
@@ -21,6 +23,7 @@ var app = express();
 app.set('view engine', 'ejs');
 app.use('/assets', express.static('assets'));
 app.use('/storage', express.static('storage'));
+app.use(expressSession({secret: 'my top secret password', saveUninitialized: true, resave: false}));
 
 
 //MIDDLEWARE
@@ -39,6 +42,7 @@ app.use('/signup', signup);
 app.use('/', login);
 app.use('/logout',logout);
 app.use('/admin', admin);
+app.use('/owner', owner);
 app.use('/superadmin', superadmin);
 app.use('/volunteer', volunteer);
 /*app.get('/index', function(request, response){
