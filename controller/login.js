@@ -49,7 +49,7 @@ router.post('/login', function(request, response){
                   }
                   else if(status.usertype == 'owner' && status.status== 'accept'){
                         //console.log(user.username);
-                        request.session.un = status.un;
+                    request.session.un = request.body.username;
                         response.redirect('/owner');
                   }
                   else if(status.usertype == 'eventmanager' && status.status== 'accept'){
