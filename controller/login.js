@@ -11,31 +11,31 @@ router.get('/', function(request, response){
       //response.render('index');
 });
 router.get('/login', function(request, response){
-	response.render('login');
+      response.render('login');
 });
 
 router.post('/login', function(request, response){
 
-	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
+      /*response.send(request.body.username +"<br/>"+ request.body.password);*/
  var user = {
-      	username : request.body.username,
-      	password : request.body.password,
+            username : request.body.username,
+            password : request.body.password,
           
       };
       if(!user.username || !user.password ){
-      	//console.log(user);
+            //console.log(user);
             response.redirect('/login');
       }else
       {
-      	userModel.validate(user,function(status){
+            userModel.validate(user,function(status){
 
-      		if(status.usertype == 'volunteer' && status.status== 'accept'){
-      			//console.log(user.username);
+                  if(status.usertype == 'volunteer' && status.status== 'accept'){
+                        //console.log(user.username);
                         request.session.un = status.un;
                         /*var x = request.session.un;
                         console.log(x);*/
-      			response.redirect('/volunteer');
-      		}
+                        response.redirect('/volunteer');
+                  }
                   else if(status.usertype == 'admin' && status.status== 'accept'){
 
                         //console.log(user.username);
@@ -63,12 +63,12 @@ router.post('/login', function(request, response){
                         response.redirect('/generaluser');
                   }
 
-      		else{
+                  else{
 
-      			/*response.send('Error in adding user');*/
+                        /*response.send('Error in adding user');*/
                         response.redirect('/login');
-      		}
-      	});
+                  }
+            });
       }
 });
 
