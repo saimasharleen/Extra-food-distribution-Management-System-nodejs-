@@ -35,6 +35,28 @@ router.get('/posts', function(req, res){
 	});
 });
 
+
+
+router.get('/requests', function(req, res){
+
+	var user = {
+      	username: req.session.un
+      };
+
+	ownerModel.getRequests(user.username, function(results){
+		if(results != null){
+			res.render('owner/requests', {posts: results});			
+		}else{
+			res.send('Error!.. try again...');
+		}
+	});
+});
+
+
+
+
+
+
 router.get('/posts/edit/:id', function(req, res){
 
 	ownerModel.getById(req.params.id, function(result){
@@ -46,11 +68,6 @@ router.get('/posts/edit/:id', function(req, res){
 	});
 });
 
-
-
-router.get('/ranking', function(request, response){
-	response.render('owner/ranking');
-});
 
 router.post('/', function(request, response){
 	  
@@ -105,14 +122,54 @@ router.get('/posts/delete/:id', function(req, res){
 
 
 
+router.get('/requests/accept/:id', function(req, res){	
 
-router.get('/notification', function(request, response){
-	response.render('owner/notification');
+
+	ownerModel.accept(req.params.id, function(result){
+		if(result != null){
+			res.redirect('/owner/requests');			
+		}else{
+			res.send('Error!.. try again...');
+		}
+	});
+});
+
+router.get('/requests/reject/:id', function(req, res){	
+
+
+	ownerModel.reject(req.params.id, function(result){
+		if(result != null){
+			res.redirect('/owner/requests');			
+		}else{
+			res.send('Error!.. try again...');
+		}
+	});
 });
 
 
 
 
+router.get('/notification', function(request, response){
+	response.render('owner/notification');
+});
+
+router.get('/ranking', function(request, response){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('owner/ranking');
+  }else{
+    response.redirect('/login');
+}
+});
+
+router.get('/ranking', function(request, response){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('owner/ranking');
+  }else{
+    response.redirect('/login');
+}
+});
 
 
 
