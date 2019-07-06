@@ -13,6 +13,13 @@
     <link rel="stylesheet" href="/assets/css/media.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/animate/animate.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/select2/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/perfect-scrollbar/perfect-scrollbar.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/main.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link rel="stylesheet" href="/assets/css/search.css">
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -93,16 +100,31 @@
     <div class="bs-example">
         <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type the name">
     </div>
-<h2> volunteer list</h2>
-<% for(var i=0; i < userList.length; i++) { %>
+<div class="limiter">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table>
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">Volunteer Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                   <% for(var i=0; i < userList.length; i++) { %>
+                                <tr>
+                                    <td class="column1"><%= userList[i].username %></td>
+                                
+                                </tr>
+                               <% } %>  
 
 
-<ol>
-  <li><%= userList[i].username %></li>
-
- </ol>
-
- <% } %>
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+    </div>
 
 
 </body>
