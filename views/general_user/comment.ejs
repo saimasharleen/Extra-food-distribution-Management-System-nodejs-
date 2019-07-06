@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>General User</title>
+    <link rel="icon" href="/assets/images/signup.png">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/lightbox.min.css">
+    <link rel="stylesheet" href="/assets/css/venobox.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <style>
+            .card {
+              box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+              transition: 0.3s;
+              width: 60%;
+              height: 700px;
+              border-radius: 5px;
+              margin-left: 350px;
+              margin-top: 30px;
+            }
+            
+            .card:hover {
+              box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+            }
+           
+            
+            </style>
+    
+</head>
+<body>
+<!------------header part start--------------->
+
+<section class=" head">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="/assets/images/logo.png" width="70px" alt="logo"></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/general_user">Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/general_user/event_ranking">Ranking</a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/logout">logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+<!------------header part End--------------->
+<!------------Form part start------------->
+<br><br><br><br>
+<div class="card">
+        
+        <div class="">
+            <div class="row" style="padding-left: 20px">
+                <div class="col-sm-4" style="float: left; width: 20; padding: 5px"><h2><%= eventList.eventname %></h2></div>
+                <div class="col-sm-4" style="float: left; width: 80; padding: 5px"><%= eventList.eventdate %></div>
+                <div class="col-sm-4" style="float: right; width: 20"><%= eventList.location %></div>
+            </div>
+            <div class="row" style="padding-left: 30px; margin-top: 30px; display: block; padding-right: 30px">
+                <div style="width: 100; background-color:lightblue"><%= eventList.eventpost %></div>
+            </div>
+            <div class="row" style="padding-left: 20px; margin-top:30px">
+                <h4><b>Comments</b></h4> 
+                    <% for(var i=0; i < commentList.length; i++) { %>
+                    <div class="row" style="padding-left: 40px; margin-top:10px; width: 100%">
+                        <h4><%= commentList[i].username %></h4> &nbsp; : &nbsp;
+                        <P><%= commentList[i].comment %></P> 
+                    </div>
+                    <br>
+                    <% } %>
+                <div class="row" style="padding-left: 40px; margin-top:20px">
+                    <form method="POST">
+                        <h4><%= username %></h4>
+                        <input type="text" name="comment" placeholder="Comment your opinion">
+                        
+                        <input type="submit" name="submit" value="submit">
+                    </form>
+                </div>
+            </div>
+        </div>
+</div>
+
+<!------------Form part End---------------->
+
+<!-- validation-->
+
+<!------------Footer part End------------------------->
+  <!-- <script>
+    var eye= document.getElementById('eye');
+    eye.addEventListener('onclick',togglepass);
+
+    function togglepass(){
+       var x = document.getElementById('form_password');
+       if(x.type==="password"){
+        x.type="text";
+        console.log(x.type);
+       }else{
+        x.type="password";
+       }
+    
+    }
+  </script> -->
+   
+</body>
+</html>

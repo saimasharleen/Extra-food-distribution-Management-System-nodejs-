@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Events</title>
+    <title>General User</title>
     <link rel="icon" href="/assets/images/signup.png">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/all.css">
@@ -22,7 +22,6 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="/assets/themeTable/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/assets/themeTable/css/main.css">
-    
 </head>
 <body>
 <!------------header part start--------------->
@@ -43,10 +42,10 @@
                         <a class="nav-link" href="/event_manager">Create an Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Events</a>
+                        <a class="nav-link" href="/event_manager/eventpost">Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/event_manager/event_ranking">Ranking</a>
+                        <a class="nav-link" href="#">Ranking</a>
                     </li>
                     <li class="nav-item">
 
@@ -59,6 +58,7 @@
 </section>
 <!------------header part End--------------->
 <!------------Form part start------------->
+
 <br><br><br>
 <div class="limiter">
 		<div class="container-table100">
@@ -71,22 +71,20 @@
 								<th class="column2">Event Date</th>
 								<th class="column3">Event Post</th>
 								<th class="column4">Event Location</th>
-								<th class="column4">Status</th>
-								<th class="column4"><center>Action</center></th>
+								<th class="column4"><center>Vote</center></th>
 		
 							</tr>
 						</thead>
 						<tbody>
-                <% for(var i=0; i < eventList.length; i++) { %>
+                            <% for(var i=0; i < eventList.length; i++) { %>
 								<tr>
 									<td class="column1"><%= eventList[i].eventname %></td>
 									<td class="column2"><%= eventList[i].eventdate %></td>
 									<td class="column3"><%= eventList[i].eventpost %></td>
 									<td class="column4"><%= eventList[i].location %></td>
-									<td class="column4"><%= eventList[i].status %></td>
-									<td class="column5"><center><a href="/event_manager/edit/<%= eventList[i].id %>">Edit</a> | <a href="/event_manager/delete/<%= eventList[i].id %>">Delete</a> | <a href="/event_manager/event/<%= eventList[i].id %>">Close Event</a></center></td>
-                </tr>	
-                <% } %>
+									<td class="column5"><center><%= eventList[i].vote %></center></td>
+                                </tr>	
+                             <% } %>
 						</tbody>
 					</table>
 				</div>
@@ -94,9 +92,12 @@
 		</div>
 	</div>
 
+<!------------Form part End---------------->
 
+<!-- validation-->
 
-  </script> -->
+<!------------Footer part End------------------------->
+
     <script src="/assets/js/jquery-1.12.4.min.js"></script>
     <script src="/assets/js/slick.min.js"></script>
     <script src="/assets/js/lightbox.min.js"></script>
@@ -104,7 +105,7 @@
     <script src="/assets/js/isotope.pkgd.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/custom.js"></script>
-
+    
     <script src="/assets/themeTable/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
 	<script src="/assets/themeTable/vendor/bootstrap/js/popper.js"></script>

@@ -9,7 +9,12 @@ module.exports={
 			callback(result[0]);
 		});
 	},*/
-
+	getNotice: function(callback){
+		var sql = "SELECT * FROM admin ORDER BY id DESC LIMIT 5";
+		db.getResult(sql, [], function(result){
+			callback(result);
+		});
+	},
 	getAll: function(callback){
 		var sql = "SELECT * FROM user";
 		db.getResult(sql, [], function(result){
@@ -32,25 +37,28 @@ module.exports={
 		var sql = "select * from userlogin where username=? and password=?";
 		db.getResult(sql, [user.username, user.password], function(result){
 
-			var x= "abc";
-			if(result.length > 0){
 
-				 x= result[0].usertype;
+            var resultconfirm= {
+				 usertype: "",
+                 status: "",
+                 id :""
+				};
+			
+			if(result.length > 0){
+				var resultconfirm= {
+				un : result[0].username,
+				 usertype: result[0].usertype,
+                 status: result[0].status
+				};
 				//console.log(x);
 				
-				callback(x);
+				callback(resultconfirm);
 
 			}else{
-				callback(x);
+				callback(resultconfirm);
 			}
 		});
 	},
-	insertevent: function(user, callback){
-		var sql = "INSERT INTO event values(null, ?, ?, ?, ?)";
-		db.execute(sql, [user.eventname, user.eventdate, user.eventpost, user.location], (success) => {
-			callback(success);
-		});
-	}
 	/*getAllpost: function(callback){
 		var sql = "SELECT * FROM uploadpost";
 		db.getResult(sql, [], function(result){
