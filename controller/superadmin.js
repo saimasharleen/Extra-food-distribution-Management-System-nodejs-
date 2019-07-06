@@ -45,6 +45,21 @@ router.get('/', function(request, response){
 
 });
 
+router.get('/ranking', function(request, response){
+  
+  user = request.session.un;
+  //console.log(user);
+ adminModel.getrankingList(function(status){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('admin/ranking',{userList: status});
+  }else{
+    response.redirect('/login');
+}
+    
+      });   
+  
+});
 
 router.get('/reject/:username', function(request, response){
   
