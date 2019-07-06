@@ -30,6 +30,21 @@ router.get('/', function(request, response){
       }); 
   
 });
+router.get('/acceptedpost', function(request, response){
+  user = request.session.un;
+  //console.log(user);
+ volunteerModel.accept(function(status){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+      response.render('volunteer/acceptedpost',{userList:status});
+  }else{
+    response.redirect('/login');
+}
+      //console.log(status);
+        //response.render('volunteer/profile',{userList:status});
+      }); 
+  
+});
 
 router.get('/notification', function(request, response){
   user = request.session.un;
