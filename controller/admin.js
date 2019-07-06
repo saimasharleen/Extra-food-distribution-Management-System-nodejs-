@@ -26,6 +26,7 @@ connection.connect();
 
 // with session
 
+
 router.get('/', function(request, response){
   user = request.session.un;
   //console.log(user);
@@ -59,6 +60,7 @@ router.get('/reject/:username', function(request, response){
                         });
             //cons
   
+
 });
 router.get('/search',function(req,res){
 connection.query('SELECT username from user where username like "%'+req.query.key+'%"', function(err, rows, fields) {
@@ -162,9 +164,11 @@ var upload = multer({
 /*router.get('/noticeupdated', function(request, response){
 
 
+
        adminModel.getNotice(function(status){
          response.render('admin/noticeupdated',{userList: status});
         });
+
 
   });*/
 
@@ -241,6 +245,7 @@ upload(request, response, function(err){
 
 
 // ends
+
 
 
 
@@ -384,6 +389,7 @@ router.get('/noticeupdated/update/:id', function(request, response){
                         });
             //cons
   
+
 });
 router.post('/noticeupdated/update/:id', function(request, response){
   
@@ -453,7 +459,6 @@ router.get('/ranking', function(request, response){
 });
 
 //rest ownerlist
-
 router.get('/restowner', function(request, response){
   
   user = request.session.un;
@@ -467,7 +472,85 @@ router.get('/restowner', function(request, response){
 }
     
       });   
+
   
 });
 
+//end
+
+
+router.get('/listuser', function(request, response){
+  
+    response.render('admin/listuser');
+  
+});
+
+
+
+router.post('/notice', function(request, response){
+
+    var user = {
+      	post: request.body.notice
+          
+      };
+
+
+       adminModel.insert(user,function(status){
+         response.redirect('/admin/noticeupdated');
+        });
+
+	});
+
+
+
+router.get('/noticeupdated/delete/:id', function(request, response){
+	
+    
+    	 var id= request.params.id;
+
+
+   
+	adminModel.deleteNotice(id, function(status){
+		//console.log(username);
+                       response.redirect('/admin/noticeupdated');  
+                        });
+      			//cons
+	
+});
+
+router.get('/noticeupdated/update/:id', function(request, response){
+	
+    
+    	 var id= request.params.id;
+
+
+   
+	adminModel.getNotice2(id, function(status){
+		console.log(status[0].post);
+
+                       response.render('admin/updatenotice', {status});  
+                        });
+      			//cons
+	
+});
+router.post('/noticeupdated/update/:id', function(request, response){
+	
+    
+    	 var user = {
+    	 	id : request.params.id,
+    	 	post : request.body.notice
+    	 }
+
+//console.log(user);
+   
+	adminModel.updateNotice(user, function(status){
+		          
+		          console.log(status);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
+});
+
 module.exports = router;
+

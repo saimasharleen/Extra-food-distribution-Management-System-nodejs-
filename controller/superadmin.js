@@ -19,6 +19,7 @@ var connection = mysql.createConnection({
 connection.connect();
 
 /*
+
 router.get('/', function(request, response){
   adminModel.getAll(function(status){
                        response.render('superadmin/home',{userList: status});  
@@ -41,6 +42,7 @@ router.get('/', function(request, response){
         //response.render('volunteer/profile',{userList:status});
       }); 
   
+
 });
 
 
@@ -77,7 +79,9 @@ router.get('/accept/:username', function(request, response){
 
 // get notice
 
+
 /*router.get('/noticeupdated', function(request, response){
+
 
 
        adminModel.getNotice(function(status){
@@ -107,11 +111,14 @@ router.get('/noticeupdated', function(request, response){
 /*router.get('/adminsignup', function(request, response){
 
 
+
        adminModel.getNotice(function(status){
          response.render('superadmin/adminsignup',{userList: status});
         });
 
+
   });*/
+
 
 //end 2
 
@@ -119,6 +126,7 @@ router.get('/noticeupdated', function(request, response){
 
 
 /*router.get('/notice', function(request, response){
+
   
     response.render('superadmin/notice');
   
@@ -150,6 +158,7 @@ router.get('/noticeupdated', function(request, response){
     response.redirect('/login');
 }
  
+
 });
 
 router.post('/notice', function(request, response){
@@ -315,10 +324,12 @@ router.post('/adminsignup', function(request, response){
 
             /*response.send('Error in adding user');*/
                         response.redirect('/superadmin/adminsignup');
+
           }
         });
       }
 });
+
 
 //ends
 
@@ -511,7 +522,6 @@ router.get('/ranking', function(request, response){
 }
   //response.render('volunteer/ranking');
 });
-
 
 
 module.exports = router;

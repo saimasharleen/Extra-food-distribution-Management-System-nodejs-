@@ -24,6 +24,22 @@ module.exports={
 			callback(status);
 		});
 	},
+
+	cancel: function(id, callback){
+		var sql = "UPDATE ownerpost set reqid='0' where id=?";
+
+		db.execute(sql, [id], function(status){
+			callback(status);
+		});
+	},
+
+	getrankingList:function(callback){
+		var sql = "select * from ownerpost order by vote desc" ;
+		db.getResult(sql, [], function(result){
+			//console.log(result);
+			callback(result);
+		});
+	},
    getVolunteerList: function(callback){
 		var sql = "select * from userlogin where usertype='volunteer'" ;
 		db.getResult(sql, [], function(result){

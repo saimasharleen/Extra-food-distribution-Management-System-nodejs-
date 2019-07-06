@@ -3,7 +3,9 @@ var db = require('./db');
 module.exports={
 
 	get: function(userId, callback){
+
 		var sql = "select * from user where username=?";
+
 		db.getResult(sql, [userId], function(result){
 			//console.log(result);
 			callback(result[0]);
@@ -65,6 +67,7 @@ module.exports={
 		});
 	},
 //ends
+
 
 
 
@@ -154,6 +157,7 @@ getVolunteerList: function(callback){
 	},
    getEventList: function(callback){
 		var sql = "select * from eventmanage" ;
+
 		db.getResult(sql, [], function(result){
 			//console.log(result);
 			callback(result);
@@ -169,3 +173,4 @@ updateNotice: function(user, callback){
 	},
 	
 }
+
