@@ -61,6 +61,7 @@ router.get('/notification/clear/:id', function(request, response){
   
 });
 
+
 router.get('/ranking', function(request, response){
   
   user = request.session.un;
@@ -93,6 +94,7 @@ router.get('/request/:id', function(request, response){
   
 });
 
+
 router.get('/cancel/:id', function(request, response){
   
     
@@ -107,6 +109,7 @@ router.get('/cancel/:id', function(request, response){
             //cons
   
 });
+
 
 router.get('/vote', function(request, response){
   
@@ -136,6 +139,7 @@ router.post('/vote',function(request, response){
         if(status == true){
            if(request.session.un != ""){
     console.log(request.session.un);
+
 
      response.redirect('/volunteer/ranking');
   }else{
@@ -201,7 +205,9 @@ router.get('/acceptedpost', function(request, response){
     response.redirect('/login');
 }
 
+
   //response.render('volunteer/acceptedpost');
+
 });
 
 router.get('/notification', function(request, response){
@@ -211,6 +217,7 @@ router.get('/notification', function(request, response){
   }else{
     response.redirect('/login');
 }
+
 
   //response.render('volunteer/notification');
 
@@ -239,6 +246,7 @@ router.get('/ranking', function(request, response){
     response.redirect('/login');
 }
 
+
   //response.render('volunteer/ranking');
 });
 
@@ -249,6 +257,7 @@ router.get('/vote', function(request, response){
   }else{
     response.redirect('/login');
 }
+
 
   //response.render('volunteer/vote');
 });
@@ -293,6 +302,7 @@ router.post('/editdata',function(request, response){
       });
   
 });
+
 router.post('/editdata',function(request, response){
       var user={
         username  : request.session.un,

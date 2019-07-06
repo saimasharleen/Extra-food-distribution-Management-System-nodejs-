@@ -11,10 +11,13 @@ router.get('/', function(request, response){
       //response.render('index');
 });
 router.get('/login', function(request, response){
+
       response.render('login');
+
 });
 
 router.post('/login', function(request, response){
+
 
       /*response.send(request.body.username +"<br/>"+ request.body.password);*/
  var user = {
@@ -36,6 +39,7 @@ router.post('/login', function(request, response){
                         console.log(x);*/
                         response.redirect('/volunteer');
                   }
+
                   else if(status.usertype == 'admin' && status.status== 'accept'){
 
                         //console.log(user.username);
@@ -49,17 +53,22 @@ router.post('/login', function(request, response){
                   }
                   else if(status.usertype == 'owner' && status.status== 'accept'){
                         //console.log(user.username);
+
                     request.session.un = request.body.username;
+
                         response.redirect('/owner');
                   }
                   else if(status.usertype == 'eventmanager' && status.status== 'accept'){
                         //console.log(user.username);
                         request.session.un = status.un;
+
                         response.redirect('/event_manager');
+
                   }
                   else if(status.usertype == 'generaluser' && status.status== 'accept'){
                         //console.log(user.username);
                         request.session.un = status.un;
+
                         response.redirect('/general_user');
 
                   }
@@ -70,6 +79,7 @@ router.post('/login', function(request, response){
                         response.redirect('/login');
                   }
             });
+
       }
 });
 

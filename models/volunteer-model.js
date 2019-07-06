@@ -24,6 +24,7 @@ module.exports={
 			callback(status);
 		});
 	},
+
 	cancel: function(id, callback){
 		var sql = "UPDATE ownerpost set reqid='0' where id=?";
 

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>profile-Volunteer</title>
+    <title>profile-Admin</title>
 
     <link rel="icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
@@ -34,32 +34,29 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/volunteer">Home</a>
+                        <a class="nav-link" href="/admin">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/volunteer/notification">Notification</a>
+                  
+               <li class="nav-item">
+                        <a class="nav-link" href="/admin/ranking">Ranking</a>
                     </li>
+                   
                     <li class="nav-item">
-                        <a class="nav-link" href="/volunteer/ranking">Ranking</a>
+                        <a class="nav-link" href="/admin/profile">Profile</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/volunteer/acceptedpost">Accepted Post </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/volunteer/vote">Vote</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/volunteer/profile">Profile</a>
-                    </li>
-                    <li class="nav-item">
 
-                        <a class="nav-link" href="/volunteer/eventlist">Eventlist</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/volunteer/volunteerlist">Volunteerlist</a>
+                        <a class="nav-link" href="/admin/notice">Add notice</a>   <!-- for sending to next page -->
                     </li>
-                    <li class="nav-item">
 
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/noticeupdated">All Notices</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/listuser">Lists</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/logout">logout</a>
                     </li>
                 </ul>
@@ -109,7 +106,7 @@
     </thead>          
   </table>
 <tr>
-    <form action="/volunteer/editdata">
+    <form action="/admin/editdata">
        <input type="submit" value="Edit Profile" />
     </form>
 </tr>
