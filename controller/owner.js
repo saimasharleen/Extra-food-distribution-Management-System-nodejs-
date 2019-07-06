@@ -59,7 +59,7 @@ router.post('/', function(request, response){
       	restaurantname : request.body.restaurantname,
       	restaurantd : request.body.restaurantd,
       };
-      
+      console.log("abc");
       if(!user.restaurantname || !user.restaurantd){
            response.redirect('/owner');
       }else{ 	
