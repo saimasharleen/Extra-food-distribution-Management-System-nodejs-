@@ -12,6 +12,19 @@
     <link rel="stylesheet" href="/assets/css/media.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
+        <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/theme/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/animate/animate.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/select2/select2.min.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/assets/theme/css/main.css">
+
     
 </head>
 <body>
@@ -32,20 +45,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/superadmin">Home</a>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Notification</a>
+                   
+                  <li class="nav-item">
+                        <a class="nav-link" href="/superadmin/ranking">Ranking</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Ranking</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Accepted Post </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Vote</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="">Profile</a>
+                        <a class="nav-link" href="/superadmin/profile">Profile</a>
                     </li>
 
                     <li class="nav-item">
@@ -84,28 +89,41 @@
         </div>
     </div>
 <!------------Form part End---------------->
- <table border="1">
-            <tr>
-                <th width="30%"><center>Name</center></th>
-        
-                <th width="40%"><center>User type</center></th>
-                <th width="50%"><center>status</center></th>
-                <th width="50%"><center>Action</center></th>
-            </tr>
-   <% for(var i=0; i < userList.length; i++) { %>
-            <tr>
-                <th width="30%"><center><%= userList[i].username %></center></th>               
-                <td width="40%"><center><%= userList[i].usertype %></center></td>
-                <td width="50%"><center><%= userList[i].status %></center></td>
-                <td>
-                <a href="/admin/reject/<%= userList[i].username %>">Reject</a> | 
-                <a href="/admin/accept/<%= userList[i].username %>">Accept</a>
-            </td>
 
-            </tr>
-     <% } %>
-        </table>
-<!-- validation-->
+
+<div class="limiter">
+        <div class="container-table100">
+            <div class="wrap-table100">
+                <div class="table100">
+                    <table>
+                        <thead>
+                            <tr class="table100-head">
+                                <th class="column1">Name</th>
+                                <th class="column2">Usertype</th>
+                                <th class="column3">status</th>
+                                <th class="column4">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                   <% for(var i=0; i < userList.length; i++) { %>
+                                <tr>
+                                    <td class="column1"><%= userList[i].username %></td>
+                                    <td class="column2"><%= userList[i].usertype %></td>
+                                    <td class="column3"><%= userList[i].status %></td>
+                                    <td class="column4"><a href="/superadmin/reject/<%= userList[i].username %>">Reject</a> |<a href="/superadmin/accept/<%= userList[i].username %>">Accept</a> </td>
+                                </tr>
+                               <% } %>  
+                        </tbody>
+                        
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <!-- validation-->
+
 
 <!------------Footer part End------------------------->
   
