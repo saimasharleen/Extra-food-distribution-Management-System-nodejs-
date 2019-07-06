@@ -62,6 +62,21 @@ router.get('/reject/:username', function(request, response){
   
 
 });
+router.get('/ranking', function(request, response){
+  
+  user = request.session.un;
+  //console.log(user);
+adminModel.getrankingList(function(status){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('admin/ranking',{userList: status});
+  }else{
+    response.redirect('/login');
+}
+    
+      });   
+  
+});
 router.get('/search',function(req,res){
 connection.query('SELECT username from user where username like "%'+req.query.key+'%"', function(err, rows, fields) {
     if (err) throw err;
@@ -449,13 +464,19 @@ router.get('/volunteerlist', function(request, response){
 
 
 router.get('/ranking', function(request, response){
+  
+  user = request.session.un;
+  //console.log(user);
+ adminModel.getrankingList(function(status){
   if(request.session.un != ""){
     console.log(request.session.un);
-     response.render('admin/ranking');
+     response.render('admin/ranking',{userList: status});
   }else{
     response.redirect('/login');
 }
-  //response.render('volunteer/ranking');
+    
+      });   
+  
 });
 
 //rest ownerlist
