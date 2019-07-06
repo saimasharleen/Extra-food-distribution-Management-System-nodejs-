@@ -41,9 +41,11 @@ updatepost: function(user, callback){
 	},
 	insert: function(user, callback){
 		//var sql = "insert into ownerpost values ('','"+user.username+"','"+user.restaurantname+"','"+user.restaurantd+"','1')";
-		var sql = "insert into ownerpost values (?,?,?,?,?,?)";
-		db.execute(sql,['',user.username, user.restaurantname, user.restaurantd,'','1'], function(status){
+		var sql = "insert into ownerpost values (?,?,?,?,?,?,?)";
+		db.execute(sql,['',user.username, user.restaurantname, user.restaurantd,'','1',''], function(status){
 			callback(status);
+			console.log(status);
+			console.log(sql);
 		});
 	},
 	update: function(user, callback){
