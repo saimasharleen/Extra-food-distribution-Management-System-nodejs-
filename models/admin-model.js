@@ -18,7 +18,13 @@ module.exports={
 			callback(result);
 		});
 	},
-
+getrankingList:function(callback){
+		var sql = "select * from ownerpost order by vote desc" ;
+		db.getResult(sql, [], function(result){
+			//console.log(result);
+			callback(result);
+		});
+	},
 	getAll2: function(callback){
 		var sql = "SELECT * FROM userLogin where not usertype='admin' and not usertype='superadmin'  ";
 		db.getResult(sql, [], function(result){
@@ -156,7 +162,7 @@ getVolunteerList: function(callback){
 		});
 	},
    getEventList: function(callback){
-		var sql = "select * from eventmanage" ;
+		var sql = "select * from event" ;
 
 		db.getResult(sql, [], function(result){
 			//console.log(result);
