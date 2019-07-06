@@ -37,7 +37,7 @@
                         <a class="nav-link" href="">Notification</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="owner/ranking">Ranking</a>
+                        <a class="nav-link" href="">Ranking</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/owner/profile">Profile</a>
@@ -49,7 +49,6 @@
                         <a class="nav-link" href="/owner/requests">Requests</a>
                     </li>
                     <li class="nav-item">
-
                         <a class="nav-link" href="/logout">logout</a>
                     </li>
                 </ul>
@@ -63,22 +62,42 @@
 <div class="full_wrapper footer_bg">
         <div class="wrapper footer_main">
            <div class="work_head footer_head">
-               <center><h2>Edit Page:</h2></center>
-            
+
+            <%if(posts.length!=0){%>
+               <center><h2>All Requests:</h2></center>
             </div>
             <div>
-                <div class="form">
-                <form id="post_form" method="post">
-                    <div>
-                        <p>Post Id: <%=user.id%> <p>
-                    <input type="text"  id="restname" name="restaurantname" value="<%=user.restaurantname%>" required="" placeholder="Input Restaurant Name"  >
-                    <br>
-                    <input type="text"  id="description" name="restaurantd" value="<%=user.restaurantd%>" required="" placeholder="Input Description" >
-                     </div>
-                    <button type="submit" id="addpost" value="addpost">Update</button>
-                </form>
-            
+                <h2>All Requests:</h2>
+                <br>
+            <table border="1">
+                <tr>
+                 <td>Restaurant Name:</td>
+                 <td>Restaurant Description:</td>
+                <td>Actions:</td>
+             </tr>
+             
+             <% for(var i=0; i < posts.length; i++){%>
+             
+             <tr>
+                 <td><%= posts[i].restaurantname %></td>
+                 <td><%= posts[i].restaurantd %></td>
+            <td>
+                <a href="/owner/requests/accept/<%= posts[i].id %>">Accept</a> | 
+                <a href="/owner/requests/reject/<%= posts[i].id%>">Reject</a>
+            </td>
+        </tr>
+    </table>
             </div>
+               <%}}else{%>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+             <center><h2>You have no pending requests!</h2></center>
+             </div>
+             <%}%>
         </div>
     </div>
 <!------------Form part End---------------->

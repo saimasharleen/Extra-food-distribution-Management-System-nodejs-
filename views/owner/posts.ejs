@@ -37,13 +37,16 @@
                         <a class="nav-link" href="">Notification</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="">Ranking</a>
+                        <a class="nav-link" href="owner/ranking">Ranking</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/owner/profile">Profile</a>
                     </li>
                      <li class="nav-item">
                         <a class="nav-link" href="/owner/posts">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/owner/requests">Requests</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/logout">logout</a>
@@ -59,30 +62,45 @@
 <div class="full_wrapper footer_bg">
         <div class="wrapper footer_main">
            <div class="work_head footer_head">
+
+            <%if(posts.length!=0){%>
                <center><h2>All Posts:</h2></center>
-            
             </div>
             <div>
-
+                <h2>All Posts:</h2>
+                <br>
             <table border="1">
                 <tr>
                  <td>Restaurant Name:</td>
                  <td>Restaurant Description:</td>
                 <td>Actions:</td>
              </tr>
-             <% for(var i=0; i < posts.length; i++){ %>
+             
+             <% for(var i=0; i < posts.length; i++){%>
+             
              <tr>
                  <td><%= posts[i].restaurantname %></td>
                  <td><%= posts[i].restaurantd %></td>
             <td>
-                
                 <a href="/owner/posts/edit/<%= posts[i].id %>">Edit</a> | 
                 <a href="/owner/posts/delete/<%= posts[i].id%>">Delete</a>
             </td>
         </tr>
-        <% } %>
     </table>
             </div>
+               <%}}else{%>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+               <br>
+             <center><h2>You have no Posts!</h2></center>
+             <br>
+             <br>
+             <center><h3>Create Posts <a href ="/owner">here!</a></h3></center>
+             </div>
+             <%}%>
         </div>
     </div>
 <!------------Form part End---------------->

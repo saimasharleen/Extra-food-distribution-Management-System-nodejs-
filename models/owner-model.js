@@ -33,6 +33,32 @@ updatepost: function(user, callback){
 			console.log(results);
 		});	
 	},
+
+	getRequests: function(user, callback){
+		console.log(user);
+		var sql = "select * from ownerpost where username =? and reqid=?";
+		console.log(sql);
+		db.getResult(sql,[user, '1'], function(results){
+			callback(results);
+			console.log(results);
+		});	
+	},
+
+	accept: function(user, callback){
+		var sql = "update ownerpost set reqid=? where id=?";
+		db.execute(sql,['2', user], function(status){
+			callback(status);
+		});
+	},
+
+	reject: function(user, callback){
+		var sql = "update ownerpost set reqid=? where id=?";
+		db.execute(sql,['0', user], function(status){
+			callback(status);
+		});
+	},
+
+
 	getById: function(id, callback){
 		var sql = "select * from ownerpost where id=?";
 		db.getResult(sql,[id], function(result){
@@ -41,14 +67,14 @@ updatepost: function(user, callback){
 	},
 	insert: function(user, callback){
 		//var sql = "insert into ownerpost values ('','"+user.username+"','"+user.restaurantname+"','"+user.restaurantd+"','1')";
-		var sql = "insert into ownerpost values (?,?,?,?,?,?)";
-		db.execute(sql,['',user.username, user.restaurantname, user.restaurantd,'','1'], function(status){
+		var sql = "insert into ownerpost values (?,?,?,?,?,?,?)";
+		db.execute(sql,['',user.username, user.restaurantname, user.restaurantd,'','1','0'], function(status){
 			callback(status);
 		});
 	},
 	update: function(user, callback){
-		var sql = "update ownerpost set restaurantname =?, restaurantd=? where id=?";
-		db.execute(sql,[user.restaurantname, user.restaurantd, user.id], function(status){
+		var sql = "update ownerpost set restaurantname =?, restaurantd=?, reqid=? where id=?";
+		db.execute(sql,[user.restaurantname, user.restaurantd, '0', user.id], function(status){
 			callback(status);
 		});
 	},
