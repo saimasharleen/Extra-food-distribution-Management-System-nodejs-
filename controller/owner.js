@@ -148,27 +148,19 @@ router.get('/requests/reject/:id', function(req, res){
 
 
 
-
-router.get('/notification', function(request, response){
-	response.render('owner/notification');
-});
-
 router.get('/ranking', function(request, response){
+  
+  user = request.session.un;
+  //console.log(user);
+ownerModel.getrankingList(function(status){
   if(request.session.un != ""){
-    console.log(request.session.un);
-     response.render('owner/ranking');
+     response.render('owner/ranking',{userList: status});
   }else{
-    response.redirect('/login');
+    response.redirect('/owner');
 }
-});
-
-router.get('/ranking', function(request, response){
-  if(request.session.un != ""){
-    console.log(request.session.un);
-     response.render('owner/ranking');
-  }else{
-    response.redirect('/login');
-}
+    
+      });   
+  
 });
 
 

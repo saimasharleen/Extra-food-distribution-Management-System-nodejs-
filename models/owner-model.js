@@ -9,21 +9,27 @@ module.exports={
 			callback(result[0]);
 		});
 
-},
-
-updatedata: function(user, callback){
-	var sql = "UPDATE user set firstname=?, lastname=?, email=?, phoneno=?, area=? where username=?";
-	db.execute(sql, [user.firstname, user.lastname, user.email, user.phoneno, user.area, user.username], function(status){
-			callback(status);
+	},
+	getrankingList:function(callback){
+		var sql = "select * from ownerpost order by vote desc" ;
+		db.getResult(sql, [], function(result){
+			//console.log(result);
+			callback(result);
 		});
-},
-updatepost: function(user, callback){
-		var sql = "UPDATE user set u_img=? where username=?";
-		db.execute(sql, [user.photos, user.username], function(status){
-			callback(status);
-		});
+	},
+	updatedata: function(user, callback){
+		var sql = "UPDATE user set firstname=?, lastname=?, email=?, phoneno=?, area=? where username=?";
+		db.execute(sql, [user.firstname, user.lastname, user.email, user.phoneno, user.area, user.username], function(status){
+				callback(status);
+			});
+	},
+	updatepost: function(user, callback){
+			var sql = "UPDATE user set u_img=? where username=?";
+			db.execute(sql, [user.photos, user.username], function(status){
+				callback(status);
+			});
 
-},
+	},
 	getAll: function(user, callback){
 		console.log(user);
 		var sql = "select * from ownerpost where username =?";
