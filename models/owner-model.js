@@ -64,6 +64,14 @@ module.exports={
 		});
 	},
 
+	getOwnerList: function(callback){
+		var sql = "select * from userlogin where usertype='owner'" ;
+		db.getResult(sql, [], function(result){
+			console.log(result);
+			callback(result);
+		});
+	},
+
 
 	getById: function(id, callback){
 		var sql = "select * from ownerpost where id=?";

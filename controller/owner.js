@@ -163,6 +163,34 @@ ownerModel.getrankingList(function(status){
   
 });
 
+router.get('/search',function(req,res){
+connection.query('SELECT username from userlogin where username like "%'+req.query.key+'%" and usertype="owner"', function(err, rows, fields) {
+    if (err) throw err;
+    var data=[];
+    for(i=0;i<rows.length;i++)
+      {
+        data.push(rows[i].username);
+      }
+      res.end(JSON.stringify(data));
+  });
+});
+
+router.get('/ownerlist', function(request, response){
+  
+  user = request.session.un;
+  //console.log(user);
+ownerModel.getOwnerList(function(status){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('owner/ownerlist',{userList: status});
+  }else{
+    response.redirect('/owner');
+}
+    
+      });   
+  
+});
+
 
 
 router.get('/profile', function(request, response){

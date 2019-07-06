@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Homepage-Owner</title>
+  <meta charset="UTF-8">
+    <title>Owner List</title>
     <link rel="icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/all.css">
@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/media.css">
     <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/animate/animate.css">
@@ -20,12 +20,25 @@
     <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/css/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/css/main.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/search.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script  type="text/javascript" src="/assets/js/typeahead.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
 
-    
+    $('input.typeahead').typeahead({
+        name: 'countries',
+        remote: 'http://localhost:3000/owner/search?key=%QUERY',
+        limit: 10
+    });
+
+
+    });
+</script>
 </head>
 <body>
-<!------------header part start--------------->
-
+  <!------------header part start--------------->
 <section class=" head">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
@@ -42,15 +55,15 @@
                         <a class="nav-link" href="/owner">Home</a>
                     </li>
                     <li class="nav-item">
-                    <li class="nav-item">
                         <a class="nav-link" href="/owner/ownerlist">List of Owners</a>
                     </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/owner/ranking">Ranking</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/owner/profile">Profile</a>
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="/owner/posts">Posts</a>
                     </li>
                     <li class="nav-item">
@@ -65,79 +78,46 @@
     </div>
 </section>
 <!------------header part End--------------->
-<!------------Form part start------------->
 
-<div class="full_wrapper footer_bg">
-        <div class="wrapper footer_main">
-           <div class="work_head footer_head">
-
-            <%if(posts.length!=0){%>
-               <center><h2>All Posts:</h2></center>
-            </div>
-            <div>
-                <br>
-                <div class="limiter">
+<!------------table part start------------->
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="page-header">
+        <h1>Search for owners:</h1>
+    </div>
+    <div class="bs-example">
+        <input type="text" name="typeahead" class="typeahead tt-query" autocomplete="off" spellcheck="false" placeholder="Type the name">
+    </div>
+<div class="limiter">
             <div class="wrap-table100">
                 <div class="table100">
                     <table>
                         <thead>
                             <tr class="table100-head">
-                                <th class="column1">Restaurant Name</th>
-                                <th class="column2">Description:</th>
-                                <th class="column3">Actions:</th>
+                                <th class="column1">Owner Name</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                   <% for(var i=0; i < posts.length; i++){%>
+                   <% for(var i=0; i < userList.length; i++) { %>
                                 <tr>
-                                    <td class="column1"><%= posts[i].restaurantname %></td>
-                                    <td class="column2"><%= posts[i].restaurantd %></td>
-                                    <td class="column3">
-                                        <a href="/owner/posts/edit/<%= posts[i].id %>">Edit</a> | 
-                                        <a href="/owner/posts/delete/<%= posts[i].id%>">Delete</a>
-                                    </td>
+                                    <td class="column1"><%= userList[i].username %></td>
+                                
                                 </tr>
-                                <%}%>
-                        </tbody>            
+                               <% } %>  
+
+
+                        </tbody>
+                        
                     </table>
                 </div>
             </div>
     </div>
 
-            </div>
-                <%}else{%>
-               <br>
-               <br>
-               <br>
-               <br>
-               <br>
-               <br>
-             <center><h2>You have no Posts!</h2></center>
-             <br>
-             <br>
-             <center><h3>Create Posts <a href ="/owner">here!</a></h3></center>
-             </div>
-             <%}%>
-        </div>
-    </div>
-<!------------Form part End---------------->
 
-<!-- validation-->
-
-<!------------Footer part End------------------------->
-  
-    <script src="/assets/theme/vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="/assets/theme/vendor/bootstrap/js/popper.js"></script>
-    <script src="/assets/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="/assets/theme/vendor/select2/select2.min.js"></script>
-    <script src="/assets/theme/js/main.js"></script>
-    <script src="/assets/js/jquery-1.12.4.min.js"></script>
-    <script src="/assets/js/slick.min.js"></script>
-    <script src="/assets/js/lightbox.min.js"></script>
-    <script src="/assets/js/venobox.min.js"></script>
-    <script src="/assets/js/isotope.pkgd.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/assets/js/custom.js"></script>
 </body>
 </html>
