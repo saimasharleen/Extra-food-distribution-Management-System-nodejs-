@@ -11,7 +11,6 @@ var superadmin 		= require('./controller/superadmin');
 var volunteer 		= require('./controller/volunteer');
 var event_manager = require('./controller/event_manager');
 var general_user = require('./controller/general_user');
-
 var  mysql=require('mysql');
 var multer = require('multer');
 var path = require('path');
@@ -50,6 +49,7 @@ app.use('/superadmin', superadmin);
 app.use('/volunteer', volunteer);
 app.use('/event_manager', event_manager);
 app.use('/general_user', general_user);
+
 /*app.get('/index', function(request, response){
 	response.render('index');
 });*/

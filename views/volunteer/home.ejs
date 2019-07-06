@@ -95,7 +95,9 @@
                                 <tr>
                                     <td class="column1"><%= userList[i].restaurantname %></td>
                                     <td class="column2"><%= userList[i].restaurantd %></td>
-                                    <td class="column3"><a href="/volunteer/request/<%= userList[i].id %>">Request</a> |<a href="">Cancel</a> </td>
+
+                                    <td class="column3"><a href="/volunteer/request/<%= userList[i].id %>">Request</a> |<a href="/volunteer/cancel/<%= userList[i].id %>">Cancel</a> </td>
+
                                 </tr>
                                <% } %>  
                         </tbody>

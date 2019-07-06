@@ -61,6 +61,7 @@ router.post('/login', function(request, response){
                         //console.log(user.username);
                         request.session.un = status.un;
                         response.redirect('/general_user');
+
                   }
 
                   else{
