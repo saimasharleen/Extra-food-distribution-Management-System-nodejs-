@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="UTF-8">
     <title>Ranking</title>
     <link rel="icon" href="/assets/images/favicon.png">
@@ -19,11 +20,13 @@
     <script  type="text/javascript" src="/assets/js/typeahead.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
+
     $('input.typeahead').typeahead({
         name: 'countries',
         remote: 'http://localhost:3000/volunteer/search?key=%QUERY',
         limit: 10
     });
+
     });
 </script>
 </head>
@@ -100,6 +103,8 @@
  </ol>
 
  <% } %>
+
+
 
 
 </body>

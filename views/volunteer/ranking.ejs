@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ranking</title>
+    <title>Ranking-Volunteer</title>
     <link rel="icon" href="/assets/images/favicon.png">
     <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="/assets/css/all.css">
@@ -21,6 +21,7 @@
     <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/css/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/css/main.css">
+
 </head>
 <body>
 <!------------header part start--------------->
@@ -72,6 +73,7 @@
 </section>
 <!------------header part End--------------->
 
+
 <!------------table part start------------->
 <br>
 <br>
@@ -90,12 +92,14 @@
                             </tr>
                         </thead>
                         <tbody>
+
                    <% for(var i=0; i < userList.length; i++) { %>
                                 <tr>
                                     <td class="column1"><%= userList[i].restaurantname %></td>
                                     <td class="column2"><%= userList[i].vote %></td>
                                 </tr>
                                <% } %>  
+
                         </tbody>
                         
                     </table>
@@ -106,6 +110,7 @@
 
 
 <!------------Footer part End------------------------->
+
 <!------------Footer part End------------------------->
    
     <script src="/assets/theme/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -113,7 +118,6 @@
     <script src="/assets/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/theme/vendor/select2/select2.min.js"></script>
     <script src="/assets/theme/js/main.js"></script>
-  
     <script src="/assets/js/jquery-1.12.4.min.js"></script>
     <script src="/assets/js/slick.min.js"></script>
     <script src="/assets/js/lightbox.min.js"></script>

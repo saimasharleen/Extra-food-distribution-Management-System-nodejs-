@@ -55,12 +55,13 @@ router.post('/login', function(request, response){
                   else if(status.usertype == 'eventmanager' && status.status== 'accept'){
                         //console.log(user.username);
                         request.session.un = status.un;
-                        response.redirect('/eventmanager');
+                        response.redirect('/event_manager');
                   }
                   else if(status.usertype == 'generaluser' && status.status== 'accept'){
                         //console.log(user.username);
                         request.session.un = status.un;
-                        response.redirect('/generaluser');
+                        response.redirect('/general_user');
+
                   }
 
                   else{
