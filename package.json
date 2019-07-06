@@ -15,12 +15,18 @@
   "bugs": {
     "url": "https://github.com/saimasharleen/Extra-food-distribution-management-system-nodejs-/issues"
   },
-  "homepage": "https://github.com/saimasharleen/Extra-food-distribution-management-system-nodejs-#readme",
+"homepage": "https://github.com/saimasharleen/Extra-food-distribution-management-system-nodejs-#readme",
   "dependencies": {
+    "axios": "^0.19.0",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
-    "express-session": "^1.16.2"
+    "express-session": "^1.16.2",
+    "multer": "^1.4.1",
+    "mysql": "^2.17.1",
+    "path": "^0.12.7",
+    "slackbots": "^1.2.0",
+    "socket.io": "^2.2.0"
   }
 }

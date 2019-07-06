@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/assets/css/slick.css">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="stylesheet" href="/assets/css/media.css">
+    
 </head>
 <body>
 <div class="preloder">
@@ -45,10 +46,10 @@
                         <a class="nav-link" href="#faq">Works </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contact">Features</a>
+                        <a class="nav-link" href="#contact">Notification</a>
                     </li>
                 </ul>
                 <form class="form-inline my-2 my-lg-0">
@@ -84,7 +85,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="banner_tex">
-                    <form action="signup.html">
+                    <form action="/signup">
                         <button type="submit">Signup Now</button>
                     </form>
                     <i class="fas fa-chevron-left left"></i>
@@ -209,82 +210,17 @@
             <div class="col-lg-12">
                 <div class="service2_head">
                     
-                    <h2>Our Core features</h2>
+                    <h2>Notices</h2>
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-4">
                     <div class="row">
-                        <div class="col-lg-3">
-                            <div class="service2_icon">
-                                <i class="fas fa-anchor"></i>
-                            </div>
+                    <div> <% for(var i=0; i < userList.length; i++) { %> </div>
+                        <div class="col-lg-3" style="float: left;">
+                           <p><%= userList[i].post %></p> 
                         </div>
-                        <div class="col-lg-9">
-                            <div class="service2_tex">
-                                <h5>Admin</h5>
-                                <p>Normal Admin needs approval from Super Admin. Super Admin can change a normal admin into super admin.Admin can put any urgent notice on the website.Admin Can delete posted notice.Admin can reject or approve volunteers after registration. Admin can reject or approve restaurant owner after registration.Admin needs to approve post after owner posting them</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="service2_icon">
-                                <i class="fas fa-anchor"></i>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="service2_tex">
-                                <h5>Owner</h5>
-                                <p>Owners can update information in the system.Owners can write the post for extra food.Owners can see the accept/reject notification of the volunteers.Owners can delete information in the system.Owners can insert new information in the system.Owners can delete any restaurant post.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-3">
-                            <div class="service2_icon">
-                                <i class="fas fa-anchor"></i>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="service2_tex">
-                                <h5>Volunteer</h5>
-                                <p>Volunteer can update information in the system.Volunteer can accept the restaurants post.Volunteer can get the notification of the new post of the restaurant’s owner.Volunteer can search restaurants post accordingly to their zone.Volunteer can delete information in the system.Volunteer can insert new information in the system.Volunteer can see all the rankings of the restaurants.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="row mt-5">
-                        <div class="col-lg-3">
-                            <div class="service2_icon">
-                                <i class="fas fa-anchor"></i>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="service2_tex">
-                                <h5>Event Manager</h5>
-                                <p>Can create an event.Delete event.Post on event.Voting Result publication.Updating event information.Complete event status.Contributor (restaurant owner) ranking update.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="row mt-5">
-                        <div class="col-lg-3">
-                            <div class="service2_icon">
-                                <i class="fas fa-anchor"></i>
-                            </div>
-                        </div>
-                        <div class="col-lg-9">
-                            <div class="service2_tex">
-                                <h5>General User</h5>
-                                <p>Can see all the event.Can vote for the event.Can post on the event.Can offer new event.Can like the event.Can Comment the event.Can share the event.</p>
-                            </div>
+                      <% } %>
                         </div>
                     </div>
                 </div>
@@ -351,5 +287,6 @@
     <script src="/assets/js/isotope.pkgd.js"></script>
     <script src="/assets/js/bootstrap.min.js"></script>
     <script src="/assets/js/custom.js"></script>
+
 </body>
 </html>
