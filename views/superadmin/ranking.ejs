@@ -93,10 +93,15 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                   <% for(var i=0; i < userList.length; i++) { %>
                                 <tr>
-                                    <td class="column1"></td>
-                                    <td class="column2"></td>
+                                    <td class="column1"><%= userList[i].restaurantname %></td>
+                                    <td class="column2"><%= userList[i].vote %></td>
                                 </tr>
+                               <% } %>  
+
+
                         </tbody>
                         
                     </table>
