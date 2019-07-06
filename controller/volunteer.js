@@ -60,6 +60,21 @@ router.get('/notification/clear/:id', function(request, response){
             //cons
   
 });
+router.get('/ranking', function(request, response){
+  
+  user = request.session.un;
+  //console.log(user);
+volunteerModel.getrankingList(function(status){
+  if(request.session.un != ""){
+    console.log(request.session.un);
+     response.render('volunteer/ranking',{userList: status});
+  }else{
+    response.redirect('/login');
+}
+    
+      });   
+  
+});
 
 router.get('/request/:id', function(request, response){
   
@@ -75,7 +90,20 @@ router.get('/request/:id', function(request, response){
             //cons
   
 });
+router.get('/cancel/:id', function(request, response){
+  
+    
+       var id= request.params.id;
 
+
+   
+  volunteerModel.cancel(id, function(status){
+    //console.log(username);
+                       response.redirect('/volunteer');  
+                        });
+            //cons
+  
+});
 router.get('/vote', function(request, response){
   
   user = request.session.un;
@@ -104,7 +132,7 @@ router.post('/vote',function(request, response){
         if(status == true){
            if(request.session.un != ""){
     console.log(request.session.un);
-     response.redirect('/volunteer/vote');
+     response.redirect('/volunteer/ranking');
   }else{
     response.redirect('/login');
 }
@@ -167,7 +195,7 @@ router.get('/acceptedpost', function(request, response){
   }else{
     response.redirect('/login');
 }
-	//response.render('volunteer/acceptedpost');
+  //response.render('volunteer/acceptedpost');
 });
 
 router.get('/notification', function(request, response){
@@ -177,7 +205,7 @@ router.get('/notification', function(request, response){
   }else{
     response.redirect('/login');
 }
-	//response.render('volunteer/notification');
+  //response.render('volunteer/notification');
 });
 
 router.get('/profile', function(request, response){
@@ -202,7 +230,7 @@ router.get('/ranking', function(request, response){
   }else{
     response.redirect('/login');
 }
-	//response.render('volunteer/ranking');
+  //response.render('volunteer/ranking');
 });
 
 router.get('/vote', function(request, response){
@@ -212,7 +240,7 @@ router.get('/vote', function(request, response){
   }else{
     response.redirect('/login');
 }
-	//response.render('volunteer/vote');
+  //response.render('volunteer/vote');
 });
 
 router.get('/editdata', function(request, response){
