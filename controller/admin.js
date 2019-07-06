@@ -3,7 +3,14 @@ var router = express.Router();
 var mysql = require('mysql');
 var adminModel = require.main.require('./models/admin-model');
 
+var connection = mysql.createConnection({
+  host     : 'localhost',
+  user     : 'root',
+  password : '',
+  database : 'extrafood'
+});
 
+connection.connect();
 router.get('/', function(request, response){
 	adminModel.getAll(function(status){
                        response.render('admin/home',{userList: status});  
@@ -12,8 +19,162 @@ router.get('/', function(request, response){
 	
 });
 
-router.post('/', function(request, response){
-	/*response.send(request.body.username +"<br/>"+ request.body.password);*/
+
+router.get('/reject/:username', function(request, response){
+	
+    
+    	 var username= request.params.username;
+
+
+   
+	adminModel.update(username, function(status){
+		console.log(username);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
+});
+router.get('/search',function(req,res){
+connection.query('SELECT username from user where username like "%'+req.query.key+'%"', function(err, rows, fields) {
+    if (err) throw err;
+    var data=[];
+    for(i=0;i<rows.length;i++)
+      {
+        data.push(rows[i].username);
+      }
+      res.end(JSON.stringify(data));
+  });
+});
+
+
+router.get('/accept/:username', function(request, response){
+	
+    
+    	 var username= request.params.username;
+
+
+   
+	adminModel.updateAccept(username, function(status){
+		console.log(username);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
+});
+
+// get notice
+
+router.get('/noticeupdated', function(request, response){
+
+
+       adminModel.getNotice(function(status){
+         response.render('admin/noticeupdated',{userList: status});
+        });
+
+	});
+
+// ends
+
+
+
+router.get('/notice', function(request, response){
+	
+    response.render('admin/notice');
+	
+});
+
+
+router.get('/noticeupdated', function(request, response){
+	
+    response.render('admin/noticeupdated');
+	
+});
+
+// admin list
+ 
+router.get('/adminlist', function(request, response){
+  
+    adminModel.getAdminList(function(status){
+                       response.render('admin/adminlist',{userList: status});  
+                        });
+  
+});
+
+//end
+
+
+router.get('/listuser', function(request, response){
+  
+    response.render('admin/listuser');
+  
+});
+
+
+
+router.post('/notice', function(request, response){
+
+    var user = {
+      	post: request.body.notice
+          
+      };
+
+
+       adminModel.insert(user,function(status){
+         response.redirect('/admin/noticeupdated');
+        });
+
+	});
+
+
+
+router.get('/noticeupdated/delete/:id', function(request, response){
+	
+    
+    	 var id= request.params.id;
+
+
+   
+	adminModel.deleteNotice(id, function(status){
+		//console.log(username);
+                       response.redirect('/admin/noticeupdated');  
+                        });
+      			//cons
+	
+});
+
+router.get('/noticeupdated/update/:id', function(request, response){
+	
+    
+    	 var id= request.params.id;
+
+
+   
+	adminModel.getNotice2(id, function(status){
+		console.log(status[0].post);
+
+                       response.render('admin/updatenotice', {status});  
+                        });
+      			//cons
+	
+});
+router.post('/noticeupdated/update/:id', function(request, response){
+	
+    
+    	 var user = {
+    	 	id : request.params.id,
+    	 	post : request.body.notice
+    	 }
+
+//console.log(user);
+   
+	adminModel.updateNotice(user, function(status){
+		          
+		          console.log(status);
+                       response.redirect('/admin');  
+                        });
+      			//cons
+	
 });
 
 module.exports = router;
+
