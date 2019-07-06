@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 04, 2019 at 08:26 AM
+-- Generation Time: Jul 06, 2019 at 11:25 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.1
 
@@ -49,6 +49,31 @@ INSERT INTO `admin` (`id`, `post`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `eventmanage`
+--
+
+CREATE TABLE `eventmanage` (
+  `id` int(100) NOT NULL,
+  `eventname` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
+  `username` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
+  `eventdate` date NOT NULL,
+  `eventpost` varchar(1000) COLLATE utf32_unicode_ci NOT NULL,
+  `location` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
+  `eventstatus` varchar(100) COLLATE utf32_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+
+--
+-- Dumping data for table `eventmanage`
+--
+
+INSERT INTO `eventmanage` (`id`, `eventname`, `username`, `eventdate`, `eventpost`, `location`, `eventstatus`) VALUES
+(1, 'kuratoli', 'baro00', '2019-07-18', 'vsgfajgldhlhbldhblhb', 'kuratoli', 'complete'),
+(2, 'panthapath', 'kim10', '2019-07-07', 'hdsjhhfiahbiphbiphdfihb', 'panthapath', 'ongoing'),
+(3, 'mirpur', 'yoyo02', '2019-07-08', 'bskjvhlhvgbsbgjb', 'mirpur', 'ongoing');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `ownerpost`
 --
 
@@ -58,30 +83,19 @@ CREATE TABLE `ownerpost` (
   `restaurantname` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
   `restaurantd` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
   `vote` int(100) DEFAULT NULL,
-  `notification` int(100) DEFAULT NULL
+  `notification` int(100) DEFAULT NULL,
+  `reqid` int(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Dumping data for table `ownerpost`
 --
 
-INSERT INTO `ownerpost` (`id`, `username`, `restaurantname`, `restaurantd`, `vote`, `notification`) VALUES
-(2, 'HASIANNA', 'boma burger', 'kbkjdbjbds', NULL, NULL),
-(3, 'jaebum', 'sao26', 'dddyfuyhcvhjvcjgc', NULL, NULL),
-(4, 'taehyung', 'chillox', 'gfgfgfgfhgfhffjhf', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `restaurantvote`
---
-
-CREATE TABLE `restaurantvote` (
-  `voteid` int(100) NOT NULL,
-  `username` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
-  `restaurantname` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
-  `restaurantid` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
+INSERT INTO `ownerpost` (`id`, `username`, `restaurantname`, `restaurantd`, `vote`, `notification`, `reqid`) VALUES
+(3, 'jaebum', 'sao26', 'dddyfuyhcvhjvcjgc', 3, NULL, NULL),
+(4, 'yoyobro', '3food', 'bjbnbnbnbn', 3, NULL, NULL),
+(5, 'maisha0', 'takeout', 'jdnbjnnn', 3, NULL, NULL),
+(7, 'saima0', 'AHGVGH', 'CGCGC', 0, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -106,16 +120,23 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `firstname`, `lastname`, `username`, `email`, `phoneno`, `area`, `usertype`, `u_img`) VALUES
-(1, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'photos-1561985623368.PNG'),
+(1, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'photos-1562404354320.png'),
 (2, 'abc', 'def', 'admin0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'abcd'),
-(3, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'abcd'),
-(4, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'abcd'),
+(3, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'photos-1562404354320.png'),
+(4, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'photos-1562404354320.png'),
 (5, 'abc', 'def', 'abcd0', 'saimayo@gmail.com', '01765432109', 'dhaka', 'owner', 'abcd'),
-(6, 'saima', 'sharleen', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'abcd'),
-(7, 'saima', 'sharleen', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'abcd'),
+(6, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'photos-1562404354320.png'),
+(7, 'abc', 'def', 'saima0', 'saimasharleen0@gmail.com', '01827537100', 'dhaka', 'owner', 'photos-1562404354320.png'),
 (8, 'najia', 'iffat', 'najia', 'abc1@gmail.com', '01234567891', 'gulshan', 'admin', 'abcd'),
-(9, 'saima', 'sharleen', 'saimasharleen0', 'saimasharleen0@gmail.com', '01827537100', 'cantonment', 'volunteer', 'photos-1562194783320.png'),
-(10, 'ADMIN', 'ADMIN', 'superadmin', 'ADMIN@gmail.com', '12345678923', 'gulshan', 'superadmin', '');
+(9, 'saima', 'sharleen', 'saimasharleen0', 'saimasharleen0@gmail.com', '01827537100', 'cantonment', 'volunteer', 'photos-1562402306036.png'),
+(10, 'ADMIN', 'ADMIN', 'superadmin', 'ADMIN@gmail.com', '12345678923', 'gulshan', 'superadmin', ''),
+(11, 'Rehnuma', 'Tamanna', 'Maisha0', 'maisha0@gmail.com', '01827537100', 'dohs', 'owner', 'abcd'),
+(12, 'Nabila', 'Bohota', 'Bohota01', 'bohota01@gmail.com', '01827537100', 'gulshan', 'owner', 'abcd'),
+(13, 'jakeya', 'Sultana', 'jaky00', 'jaky00@gmail.com', '01827537100', 'mirpur', 'owner', 'abcd'),
+(14, 'Nowshin', 'Nahid', 'nisa00', 'nisa00@gmail.com', '01827537100', 'dohs', 'volunteer', 'abcd'),
+(15, 'Rehnuma', 'Maisha', 'Maisha10', 'maisha10@gmail.com', '01827537100', 'cantonment', 'volunteer', 'abcd'),
+(16, 'Maimun', 'Ahmed', 'maimun28', 'maimun28@gmail.com', '01827537100', 'farmgate', 'volunteer', 'abcd'),
+(17, 'dogo', 'kobo', 'dogo00', 'dogo00@gmail.com', '01827537100', 'Cantonme', 'volunteer', 'abcd');
 
 -- --------------------------------------------------------
 
@@ -135,23 +156,17 @@ CREATE TABLE `userlogin` (
 --
 
 INSERT INTO `userlogin` (`username`, `password`, `usertype`, `status`) VALUES
+('Bohota01', 'Btsexogot7*', 'owner', 'accept'),
+('dogo00', 'Btsexogot7*', 'volunteer', 'accept'),
+('jaky00', 'Btsexogot7*', 'owner', 'accept'),
+('maimun28', 'Btsexogot7*', 'volunteer', 'accept'),
+('Maisha0', 'Btsexogot7*', 'owner', 'accept'),
+('Maisha10', 'Btsexogot7*', 'volunteer', 'accept'),
 ('najia', 'NAJIAiffat123#', 'admin', 'accept'),
+('nisa00', 'Btsexogot7*', 'volunteer', 'accept'),
 ('saima0', 'Btsexogot7*', 'owner', 'accept'),
 ('saimasharleen0', 'Btsexogot7*', 'volunteer', 'accept'),
 ('superadmin', 'ADministration1#', 'superadmin', 'accept');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `volunteerrequest`
---
-
-CREATE TABLE `volunteerrequest` (
-  `reqid` int(100) NOT NULL,
-  `username` varchar(100) COLLATE utf32_unicode_ci NOT NULL,
-  `postid` int(100) NOT NULL,
-  `status` varchar(100) COLLATE utf32_unicode_ci NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32 COLLATE=utf32_unicode_ci;
 
 --
 -- Indexes for dumped tables
@@ -164,16 +179,16 @@ ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `eventmanage`
+--
+ALTER TABLE `eventmanage`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `ownerpost`
 --
 ALTER TABLE `ownerpost`
   ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `restaurantvote`
---
-ALTER TABLE `restaurantvote`
-  ADD PRIMARY KEY (`voteid`);
 
 --
 -- Indexes for table `user`
@@ -188,12 +203,6 @@ ALTER TABLE `userlogin`
   ADD PRIMARY KEY (`username`);
 
 --
--- Indexes for table `volunteerrequest`
---
-ALTER TABLE `volunteerrequest`
-  ADD PRIMARY KEY (`reqid`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -204,28 +213,22 @@ ALTER TABLE `admin`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `eventmanage`
+--
+ALTER TABLE `eventmanage`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `ownerpost`
 --
 ALTER TABLE `ownerpost`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `restaurantvote`
---
-ALTER TABLE `restaurantvote`
-  MODIFY `voteid` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
--- AUTO_INCREMENT for table `volunteerrequest`
---
-ALTER TABLE `volunteerrequest`
-  MODIFY `reqid` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
