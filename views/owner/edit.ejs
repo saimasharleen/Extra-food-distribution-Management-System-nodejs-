@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage-Owner</title>
+    <link rel="icon" href="/assets/images/favicon.png">
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/all.css">
+    <link rel="stylesheet" href="/assets/css/lightbox.min.css">
+    <link rel="stylesheet" href="/assets/css/venobox.css">
+    <link rel="stylesheet" href="/assets/css/slick.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/media.css">
+    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css" >
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    
+</head>
+<body>
+<!------------header part start--------------->
+
+<section class=" head">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="logo">
+                <a class="navbar-brand" href="#"><img src="/assets/images/logo.png" width="70px" alt="logo"></a>
+            </div>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/owner">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Notification</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Ranking</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/owner/profile">Profile</a>
+                    </li>
+                     <li class="nav-item">
+                        <a class="nav-link" href="/owner/posts">Posts</a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a class="nav-link" href="/logout">logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</section>
+<!------------header part End--------------->
+<!------------Form part start------------->
+
+<div class="full_wrapper footer_bg">
+        <div class="wrapper footer_main">
+           <div class="work_head footer_head">
+               <center><h2>Edit Page:</h2></center>
+            
+            </div>
+            <div>
+                <div class="form">
+                <form id="post_form" method="post">
+                    <div>
+                        <p>Post Id: <%=user.id%> <p>
+                    <input type="text"  id="restname" name="restaurantname" value="<%=user.restaurantname%>" required="" placeholder="Input Restaurant Name"  >
+                    <br>
+                    <input type="text"  id="description" name="restaurantd" value="<%=user.restaurantd%>" required="" placeholder="Input Description" >
+                     </div>
+                    <button type="submit" id="addpost" value="addpost">Update</button>
+                </form>
+            
+            </div>
+        </div>
+    </div>
+<!------------Form part End---------------->
+
+<!-- validation-->
+
+<!------------Footer part End------------------------->
+  
+    <script src="/assets/js/jquery-1.12.4.min.js"></script>
+    <script src="/assets/js/slick.min.js"></script>
+    <script src="/assets/js/lightbox.min.js"></script>
+    <script src="/assets/js/venobox.min.js"></script>
+    <script src="/assets/js/isotope.pkgd.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/custom.js"></script>
+</body>
+</html>
