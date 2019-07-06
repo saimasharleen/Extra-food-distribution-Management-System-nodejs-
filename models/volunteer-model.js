@@ -9,6 +9,13 @@ module.exports={
 		});
 
 },
+accept:function(callback){
+		var sql = "select * from ownerpost where reqid=2" ;
+		console.log(sql);
+		db.getResult(sql, [], function(result){
+			callback(result);
+		});
+	},
  clear: function(id, callback){
 		var sql = "delete from ownerpost where id="+id;
 		db.execute(sql, function(status){
@@ -48,7 +55,7 @@ module.exports={
 		});
 	},
    getEventList: function(callback){
-		var sql = "select * from eventmanage" ;
+		var sql = "select * from event" ;
 		db.getResult(sql, [], function(result){
 			//console.log(result);
 			callback(result);
