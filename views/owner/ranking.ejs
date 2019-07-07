@@ -21,10 +21,11 @@
     <link rel="stylesheet" type="text/css" href="/assets/theme/vendor/perfect-scrollbar/perfect-scrollbar.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/css/util.css">
     <link rel="stylesheet" type="text/css" href="/assets/theme/css/main.css">
-    
+
 </head>
 <body>
 <!------------header part start--------------->
+
 
 <section class=" head">
     <div class="container">
@@ -42,10 +43,10 @@
                         <a class="nav-link" href="/owner">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/notification">Notification</a>
+                        <a class="nav-link" href="/owner/ownerlist">List of Owners</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="owner/ranking">Ranking</a>
+                        <a class="nav-link" href="/owner/ranking">Ranking</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/owner/profile">Profile</a>
@@ -65,6 +66,7 @@
     </div>
 </section>
 <!------------header part End--------------->
+
 <!------------table part start------------->
 <br>
 <br>
@@ -72,7 +74,6 @@
 <br>
 <br>
 <br>
-
 <div class="limiter">
             <div class="wrap-table100">
                 <div class="table100">
@@ -84,10 +85,15 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                   <% for(var i=0; i < userList.length; i++) { %>
                                 <tr>
-                                    <td class="column1"></td>
-                                    <td class="column2"></td>
+                                    <td class="column1"><%= userList[i].restaurantname %></td>
+                                    <td class="column2"><%= userList[i].vote %></td>
                                 </tr>
+                               <% } %>  
+
+
                         </tbody>
                         
                     </table>
@@ -98,6 +104,11 @@
 
 
 <!------------Footer part End------------------------->
+
+
+<!------------Footer part End------------------------->
+   
+
     <script src="/assets/theme/vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="/assets/theme/vendor/bootstrap/js/popper.js"></script>
     <script src="/assets/theme/vendor/bootstrap/js/bootstrap.min.js"></script>
